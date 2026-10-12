@@ -1,0 +1,460 @@
+{"name": "clip_0000", "map": "Town01_Opt", "seed": 20000, "seconds": 38.916666666666664}
+{"name": "clip_0001", "map": "Town01_Opt", "seed": 20001, "seconds": 38.916666666666664, "note": "was Town02 (route generation fails there)"}
+{"name": "clip_0002", "map": "Town03_Opt", "seed": 20002, "seconds": 38.916666666666664}
+{"name": "clip_0003", "map": "Town04_Opt", "seed": 20003, "seconds": 38.916666666666664}
+{"name": "clip_0004", "map": "Town05_Opt", "seed": 20004, "seconds": 38.916666666666664}
+{"name": "clip_0005", "map": "Town10HD_Opt", "seed": 20005, "seconds": 38.916666666666664}
+{"name": "clip_0006", "map": "Town01_Opt", "seed": 20006, "seconds": 38.916666666666664}
+{"name": "clip_0007", "map": "Town03_Opt", "seed": 20007, "seconds": 38.916666666666664, "note": "was Town02 (route generation fails there)"}
+{"name": "clip_0008", "map": "Town03_Opt", "seed": 20008, "seconds": 38.916666666666664}
+{"name": "clip_0009", "map": "Town04_Opt", "seed": 20009, "seconds": 38.916666666666664}
+{"name": "clip_0010", "map": "Town05_Opt", "seed": 20010, "seconds": 38.916666666666664}
+{"name": "clip_0011", "map": "Town10HD_Opt", "seed": 20011, "seconds": 38.916666666666664}
+{"name": "clip_0012", "map": "Town01_Opt", "seed": 20012, "seconds": 38.916666666666664}
+{"name": "clip_0013", "map": "Town04_Opt", "seed": 20013, "seconds": 38.916666666666664, "note": "was Town02 (route generation fails there)"}
+{"name": "clip_0014", "map": "Town03_Opt", "seed": 20014, "seconds": 38.916666666666664}
+{"name": "clip_0015", "map": "Town04_Opt", "seed": 20015, "seconds": 38.916666666666664}
+{"name": "clip_0016", "map": "Town05_Opt", "seed": 20016, "seconds": 38.916666666666664}
+{"name": "clip_0017", "map": "Town10HD_Opt", "seed": 20017, "seconds": 38.916666666666664}
+{"name": "clip_0018", "map": "Town01_Opt", "seed": 20018, "seconds": 38.916666666666664}
+{"name": "clip_0019", "map": "Town05_Opt", "seed": 20019, "seconds": 38.916666666666664, "note": "was Town02 (route generation fails there)"}
+{"name": "clip_0020", "map": "Town03_Opt", "seed": 20020, "seconds": 38.916666666666664}
+{"name": "clip_0021", "map": "Town04_Opt", "seed": 20021, "seconds": 38.916666666666664}
+{"name": "clip_0022", "map": "Town05_Opt", "seed": 20022, "seconds": 38.916666666666664}
+{"name": "clip_0023", "map": "Town10HD_Opt", "seed": 20023, "seconds": 38.916666666666664}
+{"name": "clip_0024", "map": "Town01_Opt", "seed": 20024, "seconds": 38.916666666666664}
+{"name": "clip_0025", "map": "Town10HD_Opt", "seed": 20025, "seconds": 38.916666666666664, "note": "was Town02 (route generation fails there)"}
+{"name": "clip_0026", "map": "Town03_Opt", "seed": 20026, "seconds": 38.916666666666664}
+{"name": "clip_0027", "map": "Town04_Opt", "seed": 20027, "seconds": 38.916666666666664}
+{"name": "clip_0028", "map": "Town05_Opt", "seed": 20028, "seconds": 38.916666666666664}
+{"name": "clip_0029", "map": "Town10HD_Opt", "seed": 20029, "seconds": 38.916666666666664}
+{"name": "clip_0030", "map": "Town01_Opt", "seed": 20030, "seconds": 38.916666666666664}
+{"name": "clip_0031", "map": "Town01_Opt", "seed": 20031, "seconds": 38.916666666666664, "note": "was Town02 (route generation fails there)"}
+{"name": "clip_0032", "map": "Town03_Opt", "seed": 20032, "seconds": 38.916666666666664}
+{"name": "clip_0033", "map": "Town04_Opt", "seed": 20033, "seconds": 38.916666666666664}
+{"name": "clip_0034", "map": "Town05_Opt", "seed": 20034, "seconds": 38.916666666666664}
+{"name": "clip_0035", "map": "Town10HD_Opt", "seed": 20035, "seconds": 38.916666666666664}
+{"name": "clip_0036", "map": "Town01_Opt", "seed": 20036, "seconds": 38.916666666666664}
+{"name": "clip_0037", "map": "Town03_Opt", "seed": 20037, "seconds": 38.916666666666664, "note": "was Town02 (route generation fails there)"}
+{"name": "clip_0038", "map": "Town03_Opt", "seed": 20038, "seconds": 38.916666666666664}
+{"name": "clip_0039", "map": "Town04_Opt", "seed": 20039, "seconds": 38.916666666666664}
+{"name": "clip_0040", "map": "Town05_Opt", "seed": 20040, "seconds": 38.916666666666664}
+{"name": "clip_0041", "map": "Town10HD_Opt", "seed": 20041, "seconds": 38.916666666666664}
+{"name": "clip_0042", "map": "Town01_Opt", "seed": 20042, "seconds": 38.916666666666664}
+{"name": "clip_0043", "map": "Town04_Opt", "seed": 20043, "seconds": 38.916666666666664, "note": "was Town02 (route generation fails there)"}
+{"name": "clip_0044", "map": "Town03_Opt", "seed": 20044, "seconds": 38.916666666666664}
+{"name": "clip_0045", "map": "Town04_Opt", "seed": 20045, "seconds": 38.916666666666664}
+{"name": "clip_0046", "map": "Town05_Opt", "seed": 20046, "seconds": 38.916666666666664}
+{"name": "clip_0047", "map": "Town10HD_Opt", "seed": 20047, "seconds": 38.916666666666664}
+{"name": "clip_0048", "map": "Town01_Opt", "seed": 20048, "seconds": 38.916666666666664}
+{"name": "clip_0049", "map": "Town05_Opt", "seed": 20049, "seconds": 38.916666666666664, "note": "was Town02 (route generation fails there)"}
+{"name": "clip_0050", "map": "Town03_Opt", "seed": 20050, "seconds": 38.916666666666664}
+{"name": "clip_0051", "map": "Town04_Opt", "seed": 20051, "seconds": 38.916666666666664}
+{"name": "clip_0052", "map": "Town05_Opt", "seed": 20052, "seconds": 38.916666666666664}
+{"name": "clip_0053", "map": "Town10HD_Opt", "seed": 20053, "seconds": 38.916666666666664}
+{"name": "clip_0054", "map": "Town01_Opt", "seed": 20054, "seconds": 38.916666666666664}
+{"name": "clip_0055", "map": "Town10HD_Opt", "seed": 20055, "seconds": 38.916666666666664, "note": "was Town02 (route generation fails there)"}
+{"name": "clip_0056", "map": "Town03_Opt", "seed": 20056, "seconds": 38.916666666666664}
+{"name": "clip_0057", "map": "Town04_Opt", "seed": 20057, "seconds": 38.916666666666664}
+{"name": "clip_0058", "map": "Town05_Opt", "seed": 20058, "seconds": 38.916666666666664}
+{"name": "clip_0059", "map": "Town10HD_Opt", "seed": 20059, "seconds": 38.916666666666664}
+{"name": "clip_0060", "map": "Town01_Opt", "seed": 20060, "seconds": 38.916666666666664}
+{"name": "clip_0061", "map": "Town01_Opt", "seed": 20061, "seconds": 38.916666666666664, "note": "was Town02 (route generation fails there)"}
+{"name": "clip_0062", "map": "Town03_Opt", "seed": 20062, "seconds": 38.916666666666664}
+{"name": "clip_0063", "map": "Town04_Opt", "seed": 20063, "seconds": 38.916666666666664}
+{"name": "clip_0064", "map": "Town05_Opt", "seed": 20064, "seconds": 38.916666666666664}
+{"name": "clip_0065", "map": "Town10HD_Opt", "seed": 20065, "seconds": 38.916666666666664}
+{"name": "clip_0066", "map": "Town01_Opt", "seed": 20066, "seconds": 38.916666666666664}
+{"name": "clip_0067", "map": "Town03_Opt", "seed": 20067, "seconds": 38.916666666666664, "note": "was Town02 (route generation fails there)"}
+{"name": "clip_0068", "map": "Town03_Opt", "seed": 20068, "seconds": 38.916666666666664}
+{"name": "clip_0069", "map": "Town04_Opt", "seed": 20069, "seconds": 38.916666666666664}
+{"name": "clip_0070", "map": "Town05_Opt", "seed": 20070, "seconds": 38.916666666666664}
+{"name": "clip_0071", "map": "Town10HD_Opt", "seed": 20071, "seconds": 38.916666666666664}
+{"name": "clip_0072", "map": "Town01_Opt", "seed": 20072, "seconds": 38.916666666666664}
+{"name": "clip_0073", "map": "Town04_Opt", "seed": 20073, "seconds": 38.916666666666664, "note": "was Town02 (route generation fails there)"}
+{"name": "clip_0074", "map": "Town03_Opt", "seed": 20074, "seconds": 38.916666666666664}
+{"name": "clip_0075", "map": "Town04_Opt", "seed": 20075, "seconds": 38.916666666666664}
+{"name": "clip_0076", "map": "Town05_Opt", "seed": 20076, "seconds": 38.916666666666664}
+{"name": "clip_0077", "map": "Town10HD_Opt", "seed": 20077, "seconds": 38.916666666666664}
+{"name": "clip_0078", "map": "Town01_Opt", "seed": 20078, "seconds": 38.916666666666664}
+{"name": "clip_0079", "map": "Town05_Opt", "seed": 20079, "seconds": 38.916666666666664, "note": "was Town02 (route generation fails there)"}
+{"name": "clip_0080", "map": "Town03_Opt", "seed": 20080, "seconds": 38.916666666666664}
+{"name": "clip_0081", "map": "Town04_Opt", "seed": 20081, "seconds": 38.916666666666664}
+{"name": "clip_0082", "map": "Town05_Opt", "seed": 20082, "seconds": 38.916666666666664}
+{"name": "clip_0083", "map": "Town10HD_Opt", "seed": 20083, "seconds": 38.916666666666664}
+{"name": "clip_0084", "map": "Town01_Opt", "seed": 20084, "seconds": 38.916666666666664}
+{"name": "clip_0085", "map": "Town10HD_Opt", "seed": 20085, "seconds": 38.916666666666664, "note": "was Town02 (route generation fails there)"}
+{"name": "clip_0086", "map": "Town03_Opt", "seed": 20086, "seconds": 38.916666666666664}
+{"name": "clip_0087", "map": "Town04_Opt", "seed": 20087, "seconds": 38.916666666666664}
+{"name": "clip_0088", "map": "Town05_Opt", "seed": 20088, "seconds": 38.916666666666664}
+{"name": "clip_0089", "map": "Town10HD_Opt", "seed": 20089, "seconds": 38.916666666666664}
+{"name": "clip_0090", "map": "Town01_Opt", "seed": 20090, "seconds": 38.916666666666664}
+{"name": "clip_0091", "map": "Town01_Opt", "seed": 20091, "seconds": 38.916666666666664, "note": "was Town02 (route generation fails there)"}
+{"name": "clip_0092", "map": "Town03_Opt", "seed": 20092, "seconds": 38.916666666666664}
+{"name": "clip_0093", "map": "Town04_Opt", "seed": 20093, "seconds": 38.916666666666664}
+{"name": "clip_0094", "map": "Town05_Opt", "seed": 20094, "seconds": 38.916666666666664}
+{"name": "clip_0095", "map": "Town10HD_Opt", "seed": 20095, "seconds": 38.916666666666664}
+{"name": "clip_0096", "map": "Town01_Opt", "seed": 20096, "seconds": 38.916666666666664}
+{"name": "clip_0097", "map": "Town03_Opt", "seed": 20097, "seconds": 38.916666666666664, "note": "was Town02 (route generation fails there)"}
+{"name": "clip_0098", "map": "Town03_Opt", "seed": 20098, "seconds": 38.916666666666664}
+{"name": "clip_0099", "map": "Town04_Opt", "seed": 20099, "seconds": 38.916666666666664}
+{"name": "clip_0100", "map": "Town05_Opt", "seed": 20100, "seconds": 38.916666666666664}
+{"name": "clip_0101", "map": "Town10HD_Opt", "seed": 20101, "seconds": 38.916666666666664}
+{"name": "clip_0102", "map": "Town01_Opt", "seed": 20102, "seconds": 38.916666666666664}
+{"name": "clip_0103", "map": "Town04_Opt", "seed": 20103, "seconds": 38.916666666666664, "note": "was Town02 (route generation fails there)"}
+{"name": "clip_0104", "map": "Town03_Opt", "seed": 20104, "seconds": 38.916666666666664}
+{"name": "clip_0105", "map": "Town04_Opt", "seed": 20105, "seconds": 38.916666666666664}
+{"name": "clip_0106", "map": "Town05_Opt", "seed": 20106, "seconds": 38.916666666666664}
+{"name": "clip_0107", "map": "Town10HD_Opt", "seed": 20107, "seconds": 38.916666666666664}
+{"name": "clip_0108", "map": "Town01_Opt", "seed": 20108, "seconds": 38.916666666666664}
+{"name": "clip_0109", "map": "Town05_Opt", "seed": 20109, "seconds": 38.916666666666664, "note": "was Town02 (route generation fails there)"}
+{"name": "clip_0110", "map": "Town03_Opt", "seed": 20110, "seconds": 38.916666666666664}
+{"name": "clip_0111", "map": "Town04_Opt", "seed": 20111, "seconds": 38.916666666666664}
+{"name": "clip_0112", "map": "Town05_Opt", "seed": 20112, "seconds": 38.916666666666664}
+{"name": "clip_0113", "map": "Town10HD_Opt", "seed": 20113, "seconds": 38.916666666666664}
+{"name": "clip_0114", "map": "Town01_Opt", "seed": 20114, "seconds": 38.916666666666664}
+{"name": "clip_0115", "map": "Town10HD_Opt", "seed": 20115, "seconds": 38.916666666666664, "note": "was Town02 (route generation fails there)"}
+{"name": "clip_0116", "map": "Town03_Opt", "seed": 20116, "seconds": 38.916666666666664}
+{"name": "clip_0117", "map": "Town04_Opt", "seed": 20117, "seconds": 38.916666666666664}
+{"name": "clip_0118", "map": "Town05_Opt", "seed": 20118, "seconds": 38.916666666666664}
+{"name": "clip_0119", "map": "Town10HD_Opt", "seed": 20119, "seconds": 38.916666666666664}
+{"name": "clip_0120", "map": "Town01_Opt", "seed": 20120, "seconds": 38.916666666666664}
+{"name": "clip_0121", "map": "Town01_Opt", "seed": 20121, "seconds": 38.916666666666664, "note": "was Town02 (route generation fails there)"}
+{"name": "clip_0122", "map": "Town03_Opt", "seed": 20122, "seconds": 38.916666666666664}
+{"name": "clip_0123", "map": "Town04_Opt", "seed": 20123, "seconds": 38.916666666666664}
+{"name": "clip_0124", "map": "Town05_Opt", "seed": 20124, "seconds": 38.916666666666664}
+{"name": "clip_0125", "map": "Town10HD_Opt", "seed": 20125, "seconds": 38.916666666666664}
+{"name": "clip_0126", "map": "Town01_Opt", "seed": 20126, "seconds": 38.916666666666664}
+{"name": "clip_0127", "map": "Town03_Opt", "seed": 20127, "seconds": 38.916666666666664, "note": "was Town02 (route generation fails there)"}
+{"name": "clip_0128", "map": "Town03_Opt", "seed": 20128, "seconds": 38.916666666666664}
+{"name": "clip_0129", "map": "Town04_Opt", "seed": 20129, "seconds": 38.916666666666664}
+{"name": "clip_0130", "map": "Town05_Opt", "seed": 20130, "seconds": 38.916666666666664}
+{"name": "clip_0131", "map": "Town10HD_Opt", "seed": 20131, "seconds": 38.916666666666664}
+{"name": "clip_0132", "map": "Town01_Opt", "seed": 20132, "seconds": 38.916666666666664}
+{"name": "clip_0133", "map": "Town04_Opt", "seed": 20133, "seconds": 38.916666666666664, "note": "was Town02 (route generation fails there)"}
+{"name": "clip_0134", "map": "Town03_Opt", "seed": 20134, "seconds": 38.916666666666664}
+{"name": "clip_0135", "map": "Town04_Opt", "seed": 20135, "seconds": 38.916666666666664}
+{"name": "clip_0136", "map": "Town05_Opt", "seed": 20136, "seconds": 38.916666666666664}
+{"name": "clip_0137", "map": "Town10HD_Opt", "seed": 20137, "seconds": 38.916666666666664}
+{"name": "clip_0138", "map": "Town01_Opt", "seed": 20138, "seconds": 38.916666666666664}
+{"name": "clip_0139", "map": "Town05_Opt", "seed": 20139, "seconds": 38.916666666666664, "note": "was Town02 (route generation fails there)"}
+{"name": "clip_0140", "map": "Town03_Opt", "seed": 20140, "seconds": 38.916666666666664}
+{"name": "clip_0141", "map": "Town04_Opt", "seed": 20141, "seconds": 38.916666666666664}
+{"name": "clip_0142", "map": "Town05_Opt", "seed": 20142, "seconds": 38.916666666666664}
+{"name": "clip_0143", "map": "Town10HD_Opt", "seed": 20143, "seconds": 38.916666666666664}
+{"name": "clip_0144", "map": "Town01_Opt", "seed": 20144, "seconds": 38.916666666666664}
+{"name": "clip_0145", "map": "Town10HD_Opt", "seed": 20145, "seconds": 38.916666666666664, "note": "was Town02 (route generation fails there)"}
+{"name": "clip_0146", "map": "Town03_Opt", "seed": 20146, "seconds": 38.916666666666664}
+{"name": "clip_0147", "map": "Town04_Opt", "seed": 20147, "seconds": 38.916666666666664}
+{"name": "clip_0148", "map": "Town05_Opt", "seed": 20148, "seconds": 38.916666666666664}
+{"name": "clip_0149", "map": "Town10HD_Opt", "seed": 20149, "seconds": 38.916666666666664}
+{"name": "clip_0150", "map": "Town01_Opt", "seed": 20150, "seconds": 38.916666666666664}
+{"name": "clip_0151", "map": "Town01_Opt", "seed": 20151, "seconds": 38.916666666666664, "note": "was Town02 (route generation fails there)"}
+{"name": "clip_0152", "map": "Town03_Opt", "seed": 20152, "seconds": 38.916666666666664}
+{"name": "clip_0153", "map": "Town04_Opt", "seed": 20153, "seconds": 38.916666666666664}
+{"name": "clip_0154", "map": "Town05_Opt", "seed": 20154, "seconds": 38.916666666666664}
+{"name": "clip_0155", "map": "Town10HD_Opt", "seed": 20155, "seconds": 38.916666666666664}
+{"name": "clip_0156", "map": "Town01_Opt", "seed": 20156, "seconds": 38.916666666666664}
+{"name": "clip_0157", "map": "Town03_Opt", "seed": 20157, "seconds": 38.916666666666664, "note": "was Town02 (route generation fails there)"}
+{"name": "clip_0158", "map": "Town03_Opt", "seed": 20158, "seconds": 38.916666666666664}
+{"name": "clip_0159", "map": "Town04_Opt", "seed": 20159, "seconds": 38.916666666666664}
+{"name": "clip_0160", "map": "Town05_Opt", "seed": 20160, "seconds": 38.916666666666664}
+{"name": "clip_0161", "map": "Town10HD_Opt", "seed": 20161, "seconds": 38.916666666666664}
+{"name": "clip_0162", "map": "Town01_Opt", "seed": 20162, "seconds": 38.916666666666664}
+{"name": "clip_0163", "map": "Town04_Opt", "seed": 20163, "seconds": 38.916666666666664, "note": "was Town02 (route generation fails there)"}
+{"name": "clip_0164", "map": "Town03_Opt", "seed": 20164, "seconds": 38.916666666666664}
+{"name": "clip_0165", "map": "Town04_Opt", "seed": 20165, "seconds": 38.916666666666664}
+{"name": "clip_0166", "map": "Town05_Opt", "seed": 20166, "seconds": 38.916666666666664}
+{"name": "clip_0167", "map": "Town10HD_Opt", "seed": 20167, "seconds": 38.916666666666664}
+{"name": "clip_0168", "map": "Town01_Opt", "seed": 20168, "seconds": 38.916666666666664}
+{"name": "clip_0169", "map": "Town05_Opt", "seed": 20169, "seconds": 38.916666666666664, "note": "was Town02 (route generation fails there)"}
+{"name": "clip_0170", "map": "Town03_Opt", "seed": 20170, "seconds": 38.916666666666664}
+{"name": "clip_0171", "map": "Town04_Opt", "seed": 20171, "seconds": 38.916666666666664}
+{"name": "clip_0172", "map": "Town05_Opt", "seed": 20172, "seconds": 38.916666666666664}
+{"name": "clip_0173", "map": "Town10HD_Opt", "seed": 20173, "seconds": 38.916666666666664}
+{"name": "clip_0174", "map": "Town01_Opt", "seed": 20174, "seconds": 38.916666666666664}
+{"name": "clip_0175", "map": "Town10HD_Opt", "seed": 20175, "seconds": 38.916666666666664, "note": "was Town02 (route generation fails there)"}
+{"name": "clip_0176", "map": "Town03_Opt", "seed": 20176, "seconds": 38.916666666666664}
+{"name": "clip_0177", "map": "Town04_Opt", "seed": 20177, "seconds": 38.916666666666664}
+{"name": "clip_0178", "map": "Town05_Opt", "seed": 20178, "seconds": 38.916666666666664}
+{"name": "clip_0179", "map": "Town10HD_Opt", "seed": 20179, "seconds": 38.916666666666664}
+{"name": "clip_0180", "map": "Town01_Opt", "seed": 20180, "seconds": 38.916666666666664}
+{"name": "clip_0181", "map": "Town01_Opt", "seed": 20181, "seconds": 38.916666666666664, "note": "was Town02 (route generation fails there)"}
+{"name": "clip_0182", "map": "Town03_Opt", "seed": 20182, "seconds": 38.916666666666664}
+{"name": "clip_0183", "map": "Town04_Opt", "seed": 20183, "seconds": 38.916666666666664}
+{"name": "clip_0184", "map": "Town05_Opt", "seed": 20184, "seconds": 38.916666666666664}
+{"name": "clip_0185", "map": "Town10HD_Opt", "seed": 20185, "seconds": 38.916666666666664}
+{"name": "clip_0186", "map": "Town01_Opt", "seed": 20186, "seconds": 38.916666666666664}
+{"name": "clip_0187", "map": "Town03_Opt", "seed": 20187, "seconds": 38.916666666666664, "note": "was Town02 (route generation fails there)"}
+{"name": "clip_0188", "map": "Town03_Opt", "seed": 20188, "seconds": 38.916666666666664}
+{"name": "clip_0189", "map": "Town04_Opt", "seed": 20189, "seconds": 38.916666666666664}
+{"name": "clip_0190", "map": "Town05_Opt", "seed": 20190, "seconds": 38.916666666666664}
+{"name": "clip_0191", "map": "Town10HD_Opt", "seed": 20191, "seconds": 38.916666666666664}
+{"name": "clip_0192", "map": "Town01_Opt", "seed": 20192, "seconds": 38.916666666666664}
+{"name": "clip_0193", "map": "Town04_Opt", "seed": 20193, "seconds": 38.916666666666664, "note": "was Town02 (route generation fails there)"}
+{"name": "clip_0194", "map": "Town03_Opt", "seed": 20194, "seconds": 38.916666666666664}
+{"name": "clip_0195", "map": "Town04_Opt", "seed": 20195, "seconds": 38.916666666666664}
+{"name": "clip_0196", "map": "Town05_Opt", "seed": 20196, "seconds": 38.916666666666664}
+{"name": "clip_0197", "map": "Town10HD_Opt", "seed": 20197, "seconds": 38.916666666666664}
+{"name": "clip_0198", "map": "Town01_Opt", "seed": 20198, "seconds": 38.916666666666664}
+{"name": "clip_0199", "map": "Town05_Opt", "seed": 20199, "seconds": 38.916666666666664, "note": "was Town02 (route generation fails there)"}
+{"name": "clip_0200", "map": "Town03_Opt", "seed": 20200, "seconds": 38.916666666666664}
+{"name": "clip_0201", "map": "Town04_Opt", "seed": 20201, "seconds": 38.916666666666664}
+{"name": "clip_0202", "map": "Town05_Opt", "seed": 20202, "seconds": 38.916666666666664}
+{"name": "clip_0203", "map": "Town10HD_Opt", "seed": 20203, "seconds": 38.916666666666664}
+{"name": "clip_0204", "map": "Town01_Opt", "seed": 20204, "seconds": 38.916666666666664}
+{"name": "clip_0205", "map": "Town10HD_Opt", "seed": 20205, "seconds": 38.916666666666664, "note": "was Town02 (route generation fails there)"}
+{"name": "clip_0206", "map": "Town03_Opt", "seed": 20206, "seconds": 38.916666666666664}
+{"name": "clip_0207", "map": "Town04_Opt", "seed": 20207, "seconds": 38.916666666666664}
+{"name": "clip_0208", "map": "Town05_Opt", "seed": 20208, "seconds": 38.916666666666664}
+{"name": "clip_0209", "map": "Town10HD_Opt", "seed": 20209, "seconds": 38.916666666666664}
+{"name": "clip_0210", "map": "Town01_Opt", "seed": 20210, "seconds": 38.916666666666664}
+{"name": "clip_0211", "map": "Town01_Opt", "seed": 20211, "seconds": 38.916666666666664, "note": "was Town02 (route generation fails there)"}
+{"name": "clip_0212", "map": "Town03_Opt", "seed": 20212, "seconds": 38.916666666666664}
+{"name": "clip_0213", "map": "Town04_Opt", "seed": 20213, "seconds": 38.916666666666664}
+{"name": "clip_0214", "map": "Town05_Opt", "seed": 20214, "seconds": 38.916666666666664}
+{"name": "clip_0215", "map": "Town10HD_Opt", "seed": 20215, "seconds": 38.916666666666664}
+{"name": "clip_0216", "map": "Town01_Opt", "seed": 20216, "seconds": 38.916666666666664}
+{"name": "clip_0217", "map": "Town03_Opt", "seed": 20217, "seconds": 38.916666666666664, "note": "was Town02 (route generation fails there)"}
+{"name": "clip_0218", "map": "Town03_Opt", "seed": 20218, "seconds": 38.916666666666664}
+{"name": "clip_0219", "map": "Town04_Opt", "seed": 20219, "seconds": 38.916666666666664}
+{"name": "clip_0220", "map": "Town05_Opt", "seed": 20220, "seconds": 38.916666666666664}
+{"name": "clip_0221", "map": "Town10HD_Opt", "seed": 20221, "seconds": 38.916666666666664}
+{"name": "clip_0222", "map": "Town01_Opt", "seed": 20222, "seconds": 38.916666666666664}
+{"name": "clip_0223", "map": "Town04_Opt", "seed": 20223, "seconds": 38.916666666666664, "note": "was Town02 (route generation fails there)"}
+{"name": "clip_0224", "map": "Town03_Opt", "seed": 20224, "seconds": 38.916666666666664}
+{"name": "clip_0225", "map": "Town04_Opt", "seed": 20225, "seconds": 38.916666666666664}
+{"name": "clip_0226", "map": "Town05_Opt", "seed": 20226, "seconds": 38.916666666666664}
+{"name": "clip_0227", "map": "Town10HD_Opt", "seed": 20227, "seconds": 38.916666666666664}
+{"name": "clip_0228", "map": "Town01_Opt", "seed": 20228, "seconds": 38.916666666666664}
+{"name": "clip_0229", "map": "Town05_Opt", "seed": 20229, "seconds": 38.916666666666664, "note": "was Town02 (route generation fails there)"}
+{"name": "clip_0230", "map": "Town03_Opt", "seed": 20230, "seconds": 38.916666666666664}
+{"name": "clip_0231", "map": "Town04_Opt", "seed": 20231, "seconds": 38.916666666666664}
+{"name": "clip_0232", "map": "Town05_Opt", "seed": 20232, "seconds": 38.916666666666664}
+{"name": "clip_0233", "map": "Town10HD_Opt", "seed": 20233, "seconds": 38.916666666666664}
+{"name": "clip_0234", "map": "Town01_Opt", "seed": 20234, "seconds": 38.916666666666664}
+{"name": "clip_0235", "map": "Town10HD_Opt", "seed": 20235, "seconds": 38.916666666666664, "note": "was Town02 (route generation fails there)"}
+{"name": "clip_0236", "map": "Town03_Opt", "seed": 20236, "seconds": 38.916666666666664}
+{"name": "clip_0237", "map": "Town04_Opt", "seed": 20237, "seconds": 38.916666666666664}
+{"name": "clip_0238", "map": "Town05_Opt", "seed": 20238, "seconds": 38.916666666666664}
+{"name": "clip_0239", "map": "Town10HD_Opt", "seed": 20239, "seconds": 38.916666666666664}
+{"name": "clip_0240", "map": "Town01_Opt", "seed": 20240, "seconds": 38.916666666666664}
+{"name": "clip_0241", "map": "Town01_Opt", "seed": 20241, "seconds": 38.916666666666664, "note": "was Town02 (route generation fails there)"}
+{"name": "clip_0242", "map": "Town03_Opt", "seed": 20242, "seconds": 38.916666666666664}
+{"name": "clip_0243", "map": "Town04_Opt", "seed": 20243, "seconds": 38.916666666666664}
+{"name": "clip_0244", "map": "Town05_Opt", "seed": 20244, "seconds": 38.916666666666664}
+{"name": "clip_0245", "map": "Town10HD_Opt", "seed": 20245, "seconds": 38.916666666666664}
+{"name": "clip_0246", "map": "Town01_Opt", "seed": 20246, "seconds": 38.916666666666664}
+{"name": "clip_0247", "map": "Town03_Opt", "seed": 20247, "seconds": 38.916666666666664, "note": "was Town02 (route generation fails there)"}
+{"name": "clip_0248", "map": "Town03_Opt", "seed": 20248, "seconds": 38.916666666666664}
+{"name": "clip_0249", "map": "Town04_Opt", "seed": 20249, "seconds": 38.916666666666664}
+{"name": "clip_0250", "map": "Town05_Opt", "seed": 20250, "seconds": 38.916666666666664}
+{"name": "clip_0251", "map": "Town10HD_Opt", "seed": 20251, "seconds": 38.916666666666664}
+{"name": "clip_0252", "map": "Town01_Opt", "seed": 20252, "seconds": 38.916666666666664}
+{"name": "clip_0253", "map": "Town04_Opt", "seed": 20253, "seconds": 38.916666666666664, "note": "was Town02 (route generation fails there)"}
+{"name": "clip_0254", "map": "Town03_Opt", "seed": 20254, "seconds": 38.916666666666664}
+{"name": "clip_0255", "map": "Town04_Opt", "seed": 20255, "seconds": 38.916666666666664}
+{"name": "clip_0256", "map": "Town05_Opt", "seed": 20256, "seconds": 38.916666666666664}
+{"name": "clip_0257", "map": "Town10HD_Opt", "seed": 20257, "seconds": 38.916666666666664}
+{"name": "clip_0258", "map": "Town01_Opt", "seed": 20258, "seconds": 38.916666666666664}
+{"name": "clip_0259", "map": "Town05_Opt", "seed": 20259, "seconds": 38.916666666666664, "note": "was Town02 (route generation fails there)"}
+{"name": "clip_0260", "map": "Town03_Opt", "seed": 20260, "seconds": 38.916666666666664}
+{"name": "clip_0261", "map": "Town04_Opt", "seed": 20261, "seconds": 38.916666666666664}
+{"name": "clip_0262", "map": "Town05_Opt", "seed": 20262, "seconds": 38.916666666666664}
+{"name": "clip_0263", "map": "Town10HD_Opt", "seed": 20263, "seconds": 38.916666666666664}
+{"name": "clip_0264", "map": "Town01_Opt", "seed": 20264, "seconds": 38.916666666666664}
+{"name": "clip_0265", "map": "Town10HD_Opt", "seed": 20265, "seconds": 38.916666666666664, "note": "was Town02 (route generation fails there)"}
+{"name": "clip_0266", "map": "Town03_Opt", "seed": 20266, "seconds": 38.916666666666664}
+{"name": "clip_0267", "map": "Town04_Opt", "seed": 20267, "seconds": 38.916666666666664}
+{"name": "clip_0268", "map": "Town05_Opt", "seed": 20268, "seconds": 38.916666666666664}
+{"name": "clip_0269", "map": "Town10HD_Opt", "seed": 20269, "seconds": 38.916666666666664}
+{"name": "clip_0270", "map": "Town01_Opt", "seed": 20270, "seconds": 38.916666666666664}
+{"name": "clip_0271", "map": "Town01_Opt", "seed": 20271, "seconds": 38.916666666666664, "note": "was Town02 (route generation fails there)"}
+{"name": "clip_0272", "map": "Town03_Opt", "seed": 20272, "seconds": 38.916666666666664}
+{"name": "clip_0273", "map": "Town04_Opt", "seed": 20273, "seconds": 38.916666666666664}
+{"name": "clip_0274", "map": "Town05_Opt", "seed": 20274, "seconds": 38.916666666666664}
+{"name": "clip_0275", "map": "Town10HD_Opt", "seed": 20275, "seconds": 38.916666666666664}
+{"name": "clip_0276", "map": "Town01_Opt", "seed": 20276, "seconds": 38.916666666666664}
+{"name": "clip_0277", "map": "Town03_Opt", "seed": 20277, "seconds": 38.916666666666664, "note": "was Town02 (route generation fails there)"}
+{"name": "clip_0278", "map": "Town03_Opt", "seed": 20278, "seconds": 38.916666666666664}
+{"name": "clip_0279", "map": "Town04_Opt", "seed": 20279, "seconds": 38.916666666666664}
+{"name": "clip_0280", "map": "Town05_Opt", "seed": 20280, "seconds": 38.916666666666664}
+{"name": "clip_0281", "map": "Town10HD_Opt", "seed": 20281, "seconds": 38.916666666666664}
+{"name": "clip_0282", "map": "Town01_Opt", "seed": 20282, "seconds": 38.916666666666664}
+{"name": "clip_0283", "map": "Town04_Opt", "seed": 20283, "seconds": 38.916666666666664, "note": "was Town02 (route generation fails there)"}
+{"name": "clip_0284", "map": "Town03_Opt", "seed": 20284, "seconds": 38.916666666666664}
+{"name": "clip_0285", "map": "Town04_Opt", "seed": 20285, "seconds": 38.916666666666664}
+{"name": "clip_0286", "map": "Town05_Opt", "seed": 20286, "seconds": 38.916666666666664}
+{"name": "clip_0287", "map": "Town10HD_Opt", "seed": 20287, "seconds": 38.916666666666664}
+{"name": "clip_0288", "map": "Town01_Opt", "seed": 20288, "seconds": 38.916666666666664}
+{"name": "clip_0289", "map": "Town05_Opt", "seed": 20289, "seconds": 38.916666666666664, "note": "was Town02 (route generation fails there)"}
+{"name": "clip_0290", "map": "Town03_Opt", "seed": 20290, "seconds": 38.916666666666664}
+{"name": "clip_0291", "map": "Town04_Opt", "seed": 20291, "seconds": 38.916666666666664}
+{"name": "clip_0292", "map": "Town05_Opt", "seed": 20292, "seconds": 38.916666666666664}
+{"name": "clip_0293", "map": "Town10HD_Opt", "seed": 20293, "seconds": 38.916666666666664}
+{"name": "clip_0294", "map": "Town01_Opt", "seed": 20294, "seconds": 38.916666666666664}
+{"name": "clip_0295", "map": "Town10HD_Opt", "seed": 20295, "seconds": 38.916666666666664, "note": "was Town02 (route generation fails there)"}
+{"name": "clip_0296", "map": "Town03_Opt", "seed": 20296, "seconds": 38.916666666666664}
+{"name": "clip_0297", "map": "Town04_Opt", "seed": 20297, "seconds": 38.916666666666664}
+{"name": "clip_0298", "map": "Town05_Opt", "seed": 20298, "seconds": 38.916666666666664}
+{"name": "clip_0299", "map": "Town10HD_Opt", "seed": 20299, "seconds": 38.916666666666664}
+{"name": "clip_0300", "map": "Town01_Opt", "seed": 20300, "seconds": 38.916666666666664}
+{"name": "clip_0301", "map": "Town01_Opt", "seed": 20301, "seconds": 38.916666666666664, "note": "was Town02 (route generation fails there)"}
+{"name": "clip_0302", "map": "Town03_Opt", "seed": 20302, "seconds": 38.916666666666664}
+{"name": "clip_0303", "map": "Town04_Opt", "seed": 20303, "seconds": 38.916666666666664}
+{"name": "clip_0304", "map": "Town05_Opt", "seed": 20304, "seconds": 38.916666666666664}
+{"name": "clip_0305", "map": "Town10HD_Opt", "seed": 20305, "seconds": 38.916666666666664}
+{"name": "clip_0306", "map": "Town01_Opt", "seed": 20306, "seconds": 38.916666666666664}
+{"name": "clip_0307", "map": "Town03_Opt", "seed": 20307, "seconds": 38.916666666666664, "note": "was Town02 (route generation fails there)"}
+{"name": "clip_0308", "map": "Town03_Opt", "seed": 20308, "seconds": 38.916666666666664}
+{"name": "clip_0309", "map": "Town04_Opt", "seed": 20309, "seconds": 38.916666666666664}
+{"name": "clip_0310", "map": "Town05_Opt", "seed": 20310, "seconds": 38.916666666666664}
+{"name": "clip_0311", "map": "Town10HD_Opt", "seed": 20311, "seconds": 38.916666666666664}
+{"name": "clip_0312", "map": "Town01_Opt", "seed": 20312, "seconds": 38.916666666666664}
+{"name": "clip_0313", "map": "Town04_Opt", "seed": 20313, "seconds": 38.916666666666664, "note": "was Town02 (route generation fails there)"}
+{"name": "clip_0314", "map": "Town03_Opt", "seed": 20314, "seconds": 38.916666666666664}
+{"name": "clip_0315", "map": "Town04_Opt", "seed": 20315, "seconds": 38.916666666666664}
+{"name": "clip_0316", "map": "Town05_Opt", "seed": 20316, "seconds": 38.916666666666664}
+{"name": "clip_0317", "map": "Town10HD_Opt", "seed": 20317, "seconds": 38.916666666666664}
+{"name": "clip_0318", "map": "Town01_Opt", "seed": 20318, "seconds": 38.916666666666664}
+{"name": "clip_0319", "map": "Town05_Opt", "seed": 20319, "seconds": 38.916666666666664, "note": "was Town02 (route generation fails there)"}
+{"name": "clip_0320", "map": "Town03_Opt", "seed": 20320, "seconds": 38.916666666666664}
+{"name": "clip_0321", "map": "Town04_Opt", "seed": 20321, "seconds": 38.916666666666664}
+{"name": "clip_0322", "map": "Town05_Opt", "seed": 20322, "seconds": 38.916666666666664}
+{"name": "clip_0323", "map": "Town10HD_Opt", "seed": 20323, "seconds": 38.916666666666664}
+{"name": "clip_0324", "map": "Town01_Opt", "seed": 20324, "seconds": 38.916666666666664}
+{"name": "clip_0325", "map": "Town10HD_Opt", "seed": 20325, "seconds": 38.916666666666664, "note": "was Town02 (route generation fails there)"}
+{"name": "clip_0326", "map": "Town03_Opt", "seed": 20326, "seconds": 38.916666666666664}
+{"name": "clip_0327", "map": "Town04_Opt", "seed": 20327, "seconds": 38.916666666666664}
+{"name": "clip_0328", "map": "Town05_Opt", "seed": 20328, "seconds": 38.916666666666664}
+{"name": "clip_0329", "map": "Town10HD_Opt", "seed": 20329, "seconds": 38.916666666666664}
+{"name": "clip_0330", "map": "Town01_Opt", "seed": 20330, "seconds": 38.916666666666664}
+{"name": "clip_0331", "map": "Town01_Opt", "seed": 20331, "seconds": 38.916666666666664, "note": "was Town02 (route generation fails there)"}
+{"name": "clip_0332", "map": "Town03_Opt", "seed": 20332, "seconds": 38.916666666666664}
+{"name": "clip_0333", "map": "Town04_Opt", "seed": 20333, "seconds": 38.916666666666664}
+{"name": "clip_0334", "map": "Town05_Opt", "seed": 20334, "seconds": 38.916666666666664}
+{"name": "clip_0335", "map": "Town10HD_Opt", "seed": 20335, "seconds": 38.916666666666664}
+{"name": "clip_0336", "map": "Town01_Opt", "seed": 20336, "seconds": 38.916666666666664}
+{"name": "clip_0337", "map": "Town03_Opt", "seed": 20337, "seconds": 38.916666666666664, "note": "was Town02 (route generation fails there)"}
+{"name": "clip_0338", "map": "Town03_Opt", "seed": 20338, "seconds": 38.916666666666664}
+{"name": "clip_0339", "map": "Town04_Opt", "seed": 20339, "seconds": 38.916666666666664}
+{"name": "clip_0340", "map": "Town05_Opt", "seed": 20340, "seconds": 38.916666666666664}
+{"name": "clip_0341", "map": "Town10HD_Opt", "seed": 20341, "seconds": 38.916666666666664}
+{"name": "clip_0342", "map": "Town01_Opt", "seed": 20342, "seconds": 38.916666666666664}
+{"name": "clip_0343", "map": "Town04_Opt", "seed": 20343, "seconds": 38.916666666666664, "note": "was Town02 (route generation fails there)"}
+{"name": "clip_0344", "map": "Town03_Opt", "seed": 20344, "seconds": 38.916666666666664}
+{"name": "clip_0345", "map": "Town04_Opt", "seed": 20345, "seconds": 38.916666666666664}
+{"name": "clip_0346", "map": "Town05_Opt", "seed": 20346, "seconds": 38.916666666666664}
+{"name": "clip_0347", "map": "Town10HD_Opt", "seed": 20347, "seconds": 38.916666666666664}
+{"name": "clip_0348", "map": "Town01_Opt", "seed": 20348, "seconds": 38.916666666666664}
+{"name": "clip_0349", "map": "Town05_Opt", "seed": 20349, "seconds": 38.916666666666664, "note": "was Town02 (route generation fails there)"}
+{"name": "clip_0350", "map": "Town03_Opt", "seed": 20350, "seconds": 38.916666666666664}
+{"name": "clip_0351", "map": "Town04_Opt", "seed": 20351, "seconds": 38.916666666666664}
+{"name": "clip_0352", "map": "Town05_Opt", "seed": 20352, "seconds": 38.916666666666664}
+{"name": "clip_0353", "map": "Town10HD_Opt", "seed": 20353, "seconds": 38.916666666666664}
+{"name": "clip_0354", "map": "Town01_Opt", "seed": 20354, "seconds": 38.916666666666664}
+{"name": "clip_0355", "map": "Town10HD_Opt", "seed": 20355, "seconds": 38.916666666666664, "note": "was Town02 (route generation fails there)"}
+{"name": "clip_0356", "map": "Town03_Opt", "seed": 20356, "seconds": 38.916666666666664}
+{"name": "clip_0357", "map": "Town04_Opt", "seed": 20357, "seconds": 38.916666666666664}
+{"name": "clip_0358", "map": "Town05_Opt", "seed": 20358, "seconds": 38.916666666666664}
+{"name": "clip_0359", "map": "Town10HD_Opt", "seed": 20359, "seconds": 38.916666666666664}
+{"name": "clip_0360", "map": "Town01_Opt", "seed": 20360, "seconds": 38.916666666666664}
+{"name": "clip_0361", "map": "Town01_Opt", "seed": 20361, "seconds": 38.916666666666664, "note": "was Town02 (route generation fails there)"}
+{"name": "clip_0362", "map": "Town03_Opt", "seed": 20362, "seconds": 38.916666666666664}
+{"name": "clip_0363", "map": "Town04_Opt", "seed": 20363, "seconds": 38.916666666666664}
+{"name": "clip_0364", "map": "Town05_Opt", "seed": 20364, "seconds": 38.916666666666664}
+{"name": "clip_0365", "map": "Town10HD_Opt", "seed": 20365, "seconds": 38.916666666666664}
+{"name": "clip_0366", "map": "Town01_Opt", "seed": 20366, "seconds": 38.916666666666664}
+{"name": "clip_0367", "map": "Town03_Opt", "seed": 20367, "seconds": 38.916666666666664, "note": "was Town02 (route generation fails there)"}
+{"name": "clip_0368", "map": "Town03_Opt", "seed": 20368, "seconds": 38.916666666666664}
+{"name": "clip_0369", "map": "Town04_Opt", "seed": 20369, "seconds": 38.916666666666664}
+{"name": "clip_0370", "map": "Town05_Opt", "seed": 20370, "seconds": 38.916666666666664}
+{"name": "clip_0371", "map": "Town10HD_Opt", "seed": 20371, "seconds": 38.916666666666664}
+{"name": "clip_0372", "map": "Town01_Opt", "seed": 20372, "seconds": 38.916666666666664}
+{"name": "clip_0373", "map": "Town04_Opt", "seed": 20373, "seconds": 38.916666666666664, "note": "was Town02 (route generation fails there)"}
+{"name": "clip_0374", "map": "Town03_Opt", "seed": 20374, "seconds": 38.916666666666664}
+{"name": "clip_0375", "map": "Town04_Opt", "seed": 20375, "seconds": 38.916666666666664}
+{"name": "clip_0376", "map": "Town05_Opt", "seed": 20376, "seconds": 38.916666666666664}
+{"name": "clip_0377", "map": "Town10HD_Opt", "seed": 20377, "seconds": 38.916666666666664}
+{"name": "clip_0378", "map": "Town01_Opt", "seed": 20378, "seconds": 38.916666666666664}
+{"name": "clip_0379", "map": "Town05_Opt", "seed": 20379, "seconds": 38.916666666666664, "note": "was Town02 (route generation fails there)"}
+{"name": "clip_0380", "map": "Town03_Opt", "seed": 20380, "seconds": 38.916666666666664}
+{"name": "clip_0381", "map": "Town04_Opt", "seed": 20381, "seconds": 38.916666666666664}
+{"name": "clip_0382", "map": "Town05_Opt", "seed": 20382, "seconds": 38.916666666666664}
+{"name": "clip_0383", "map": "Town10HD_Opt", "seed": 20383, "seconds": 38.916666666666664}
+{"name": "clip_0384", "map": "Town01_Opt", "seed": 20384, "seconds": 38.916666666666664}
+{"name": "clip_0385", "map": "Town10HD_Opt", "seed": 20385, "seconds": 38.916666666666664, "note": "was Town02 (route generation fails there)"}
+{"name": "clip_0386", "map": "Town03_Opt", "seed": 20386, "seconds": 38.916666666666664}
+{"name": "clip_0387", "map": "Town04_Opt", "seed": 20387, "seconds": 38.916666666666664}
+{"name": "clip_0388", "map": "Town05_Opt", "seed": 20388, "seconds": 38.916666666666664}
+{"name": "clip_0389", "map": "Town10HD_Opt", "seed": 20389, "seconds": 38.916666666666664}
+{"name": "clip_0390", "map": "Town01_Opt", "seed": 20390, "seconds": 38.916666666666664}
+{"name": "clip_0391", "map": "Town01_Opt", "seed": 20391, "seconds": 38.916666666666664, "note": "was Town02 (route generation fails there)"}
+{"name": "clip_0392", "map": "Town03_Opt", "seed": 20392, "seconds": 38.916666666666664}
+{"name": "clip_0393", "map": "Town04_Opt", "seed": 20393, "seconds": 38.916666666666664}
+{"name": "clip_0394", "map": "Town05_Opt", "seed": 20394, "seconds": 38.916666666666664}
+{"name": "clip_0395", "map": "Town10HD_Opt", "seed": 20395, "seconds": 38.916666666666664}
+{"name": "clip_0396", "map": "Town01_Opt", "seed": 20396, "seconds": 38.916666666666664}
+{"name": "clip_0397", "map": "Town03_Opt", "seed": 20397, "seconds": 38.916666666666664, "note": "was Town02 (route generation fails there)"}
+{"name": "clip_0398", "map": "Town03_Opt", "seed": 20398, "seconds": 38.916666666666664}
+{"name": "clip_0399", "map": "Town04_Opt", "seed": 20399, "seconds": 38.916666666666664}
+{"name": "clip_0400", "map": "Town05_Opt", "seed": 20400, "seconds": 38.916666666666664}
+{"name": "clip_0401", "map": "Town10HD_Opt", "seed": 20401, "seconds": 38.916666666666664}
+{"name": "clip_0402", "map": "Town01_Opt", "seed": 20402, "seconds": 38.916666666666664}
+{"name": "clip_0403", "map": "Town04_Opt", "seed": 20403, "seconds": 38.916666666666664, "note": "was Town02 (route generation fails there)"}
+{"name": "clip_0404", "map": "Town03_Opt", "seed": 20404, "seconds": 38.916666666666664}
+{"name": "clip_0405", "map": "Town04_Opt", "seed": 20405, "seconds": 38.916666666666664}
+{"name": "clip_0406", "map": "Town05_Opt", "seed": 20406, "seconds": 38.916666666666664}
+{"name": "clip_0407", "map": "Town10HD_Opt", "seed": 20407, "seconds": 38.916666666666664}
+{"name": "clip_0408", "map": "Town01_Opt", "seed": 20408, "seconds": 38.916666666666664}
+{"name": "clip_0409", "map": "Town05_Opt", "seed": 20409, "seconds": 38.916666666666664, "note": "was Town02 (route generation fails there)"}
+{"name": "clip_0410", "map": "Town03_Opt", "seed": 20410, "seconds": 38.916666666666664}
+{"name": "clip_0411", "map": "Town04_Opt", "seed": 20411, "seconds": 38.916666666666664}
+{"name": "clip_0412", "map": "Town05_Opt", "seed": 20412, "seconds": 38.916666666666664}
+{"name": "clip_0413", "map": "Town10HD_Opt", "seed": 20413, "seconds": 38.916666666666664}
+{"name": "clip_0414", "map": "Town01_Opt", "seed": 20414, "seconds": 38.916666666666664}
+{"name": "clip_0415", "map": "Town10HD_Opt", "seed": 20415, "seconds": 38.916666666666664, "note": "was Town02 (route generation fails there)"}
+{"name": "clip_0416", "map": "Town03_Opt", "seed": 20416, "seconds": 38.916666666666664}
+{"name": "clip_0417", "map": "Town04_Opt", "seed": 20417, "seconds": 38.916666666666664}
+{"name": "clip_0418", "map": "Town05_Opt", "seed": 20418, "seconds": 38.916666666666664}
+{"name": "clip_0419", "map": "Town10HD_Opt", "seed": 20419, "seconds": 38.916666666666664}
+{"name": "clip_0420", "map": "Town01_Opt", "seed": 20420, "seconds": 38.916666666666664}
+{"name": "clip_0421", "map": "Town01_Opt", "seed": 20421, "seconds": 38.916666666666664, "note": "was Town02 (route generation fails there)"}
+{"name": "clip_0422", "map": "Town03_Opt", "seed": 20422, "seconds": 38.916666666666664}
+{"name": "clip_0423", "map": "Town04_Opt", "seed": 20423, "seconds": 38.916666666666664}
+{"name": "clip_0424", "map": "Town05_Opt", "seed": 20424, "seconds": 38.916666666666664}
+{"name": "clip_0425", "map": "Town10HD_Opt", "seed": 20425, "seconds": 38.916666666666664}
+{"name": "clip_0426", "map": "Town01_Opt", "seed": 20426, "seconds": 38.916666666666664}
+{"name": "clip_0427", "map": "Town03_Opt", "seed": 20427, "seconds": 38.916666666666664, "note": "was Town02 (route generation fails there)"}
+{"name": "clip_0428", "map": "Town03_Opt", "seed": 20428, "seconds": 38.916666666666664}
+{"name": "clip_0429", "map": "Town04_Opt", "seed": 20429, "seconds": 38.916666666666664}
+{"name": "clip_0430", "map": "Town05_Opt", "seed": 20430, "seconds": 38.916666666666664}
+{"name": "clip_0431", "map": "Town10HD_Opt", "seed": 20431, "seconds": 38.916666666666664}
+{"name": "clip_0432", "map": "Town01_Opt", "seed": 20432, "seconds": 38.916666666666664}
+{"name": "clip_0433", "map": "Town04_Opt", "seed": 20433, "seconds": 38.916666666666664, "note": "was Town02 (route generation fails there)"}
+{"name": "clip_0434", "map": "Town03_Opt", "seed": 20434, "seconds": 38.916666666666664}
+{"name": "clip_0435", "map": "Town04_Opt", "seed": 20435, "seconds": 38.916666666666664}
+{"name": "clip_0436", "map": "Town05_Opt", "seed": 20436, "seconds": 38.916666666666664}
+{"name": "clip_0437", "map": "Town10HD_Opt", "seed": 20437, "seconds": 38.916666666666664}
+{"name": "clip_0438", "map": "Town01_Opt", "seed": 20438, "seconds": 38.916666666666664}
+{"name": "clip_0439", "map": "Town05_Opt", "seed": 20439, "seconds": 38.916666666666664, "note": "was Town02 (route generation fails there)"}
+{"name": "clip_0440", "map": "Town03_Opt", "seed": 20440, "seconds": 38.916666666666664}
+{"name": "clip_0441", "map": "Town04_Opt", "seed": 20441, "seconds": 38.916666666666664}
+{"name": "clip_0442", "map": "Town05_Opt", "seed": 20442, "seconds": 38.916666666666664}
+{"name": "clip_0443", "map": "Town10HD_Opt", "seed": 20443, "seconds": 38.916666666666664}
+{"name": "clip_0444", "map": "Town01_Opt", "seed": 20444, "seconds": 38.916666666666664}
+{"name": "clip_0445", "map": "Town10HD_Opt", "seed": 20445, "seconds": 38.916666666666664, "note": "was Town02 (route generation fails there)"}
+{"name": "clip_0446", "map": "Town03_Opt", "seed": 20446, "seconds": 38.916666666666664}
+{"name": "clip_0447", "map": "Town04_Opt", "seed": 20447, "seconds": 38.916666666666664}
+{"name": "clip_0448", "map": "Town05_Opt", "seed": 20448, "seconds": 38.916666666666664}
+{"name": "clip_0449", "map": "Town10HD_Opt", "seed": 20449, "seconds": 38.916666666666664}
+{"name": "clip_0450", "map": "Town01_Opt", "seed": 20450, "seconds": 38.916666666666664}
+{"name": "clip_0451", "map": "Town01_Opt", "seed": 20451, "seconds": 38.916666666666664, "note": "was Town02 (route generation fails there)"}
+{"name": "clip_0452", "map": "Town03_Opt", "seed": 20452, "seconds": 38.916666666666664}
+{"name": "clip_0453", "map": "Town04_Opt", "seed": 20453, "seconds": 38.916666666666664}
+{"name": "clip_0454", "map": "Town05_Opt", "seed": 20454, "seconds": 38.916666666666664}
+{"name": "clip_0455", "map": "Town10HD_Opt", "seed": 20455, "seconds": 38.916666666666664}
+{"name": "clip_0456", "map": "Town01_Opt", "seed": 20456, "seconds": 38.916666666666664}
+{"name": "clip_0457", "map": "Town03_Opt", "seed": 20457, "seconds": 38.916666666666664, "note": "was Town02 (route generation fails there)"}
+{"name": "clip_0458", "map": "Town03_Opt", "seed": 20458, "seconds": 38.916666666666664}
+{"name": "clip_0459", "map": "Town04_Opt", "seed": 20459, "seconds": 38.916666666666664}

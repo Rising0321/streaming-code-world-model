@@ -1,0 +1,14 @@
+# Whitelist: only the package, scripts, tests, docs and the small data lists are in git. Renders,
+# caches, checkpoints, QC reports and logs live in the same directory (RTCWM_DATA) but never in git.
+/*
+!/.gitignore
+!/README.md
+!/pyproject.toml
+!/rtcwm/
+!/scripts/
+!/tests/
+!/data_lists/
+!/assets/
+
+__pycache__/
+*.pyc

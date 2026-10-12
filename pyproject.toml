@@ -1,0 +1,16 @@
+[project]
+name = "rtcwm"
+version = "0.1.0"
+description = "Real-time Code World Model: CARLA data generation and causal fine-tuning of the Code World Model"
+requires-python = ">=3.10"
+dependencies = ["numpy", "pillow", "av", "opencv-python"]
+
+[project.optional-dependencies]
+render = ["carla==0.9.15"]
+train = ["torch>=2.9", "safetensors", "transformers"]   # + musubi-tuner (MiniMax-H3) and cwm_h3_inference from the CWM release
+
+[tool.setuptools.packages.find]
+include = ["rtcwm*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
