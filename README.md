@@ -48,7 +48,7 @@ git clone https://github.com/TingtingLiao/streaming-code-world-model.git && cd s
   [CWM repository](https://github.com/buaacyw/code-world-model) its patched musubi-tuner, `cwm_h3_inference` and the
   released models.
 - **`carla` env** (data only) — CARLA 0.9.15.
-- [open-code-world-model](https://github.com/guangyliu/cwm-proxy) and Qwen3-VL-32B-Instruct (captions).
+- [open-code-world-model](https://github.com/guangyliu/open-code-world-model) and Qwen3-VL-32B-Instruct (captions).
 
 ```bash
 export RTCWM_DATA=/path/to/data CWM_RELEASE=/path/to/code-world-model/release
@@ -123,7 +123,7 @@ Both trainings resume from the latest checkpoint in their output directory. The 
 
 ## 🙏 Acknowledgements
 
-The proxy code was built by [Guangyi Liu](https://github.com/guangyliu). Built on [Code World Model](https://github.com/buaacyw/code-world-model), MiniMax-H3,
+The proxy code was built by [Guangyi Liu](https://guangyiliu.com). Built on [Code World Model](https://github.com/buaacyw/code-world-model), MiniMax-H3,
 [musubi-tuner](https://github.com/kohya-ss/musubi-tuner), [CARLA](https://carla.org) and Qwen3-VL. Causal training and
 distillation follow diffusion forcing, CausVid and Self Forcing.
 
