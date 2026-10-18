@@ -1,0 +1,27 @@
+# Model dependencies resolved with Reactor Runtime during `reactor build`.
+# `build.runtime_version` in reactor.yaml selects the Runtime release.
+# Torch and transformer versions follow the released inference stack.
+torch==2.9.1
+torchvision==0.24.1
+transformers==4.57.6
+diffusers==0.32.1
+accelerate==1.6.0
+huggingface-hub==0.34.3
+safetensors>=0.6
+numpy>=2.2,<3
+Pillow>=11
+av>=14
+# Helpers imported by the pinned native packages.
+einops>=0.8
+ftfy
+sentencepiece
+bitsandbytes>=0.45
+easydict
+toml
+voluptuous
+psutil
+opencv-python-headless
+matplotlib
+soundfile
+librosa
+scipy

@@ -1,0 +1,13 @@
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+.env
+.env.*
+!.env.example
+.venv/
+demo/node_modules/
+demo/dist/
+demo/public/examples/
+*.log
+weights/
+uploads/

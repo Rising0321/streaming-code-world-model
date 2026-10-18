@@ -1,0 +1,38 @@
+$schema: reactor/v2
+
+model:
+  name: streaming-cwm
+  version: v0.1.0
+  description: Stream native 17-frame video chunks from recorded depth and semantic conditions.
+  resources:
+    gpu:
+      type: NVIDIA_B200
+      count: 1
+    cpu:
+      request: "16"
+      limit: "32"
+    memory:
+      request: 256Gi
+      limit: 512Gi
+
+runtime:
+  import: streaming_cwm:StreamingCWM
+  weights_path: ~/.cache/reactor_registry/streaming-cwm
+
+build:
+  runtime_version: "3.8.2"
+  python_version: "3.12"
+  cuda_version: "12.8.1"
+  python_requirements: requirements.txt
+  system_packages: [git, build-essential, libgl1, libglib2.0-0]
+  run:
+    - git clone https://github.com/TingtingLiao/streaming-code-world-model.git /opt/streaming-cwm && git -C /opt/streaming-cwm checkout 64c489a49e9ed5c92c4faa8773edc8b42b457c7c
+    - git clone https://github.com/buaacyw/code-world-model.git /opt/cwm && git -C /opt/cwm checkout 17fa82ba2fb8168aa0d30fc51a1d1d0ebbc9180b
+    - git clone https://github.com/kohya-ss/musubi-tuner.git /opt/musubi-tuner && git -C /opt/musubi-tuner fetch origin c4dc6b8038c114f730f1aa24a98064de3bd62437 && git -C /opt/musubi-tuner checkout c4dc6b8038c114f730f1aa24a98064de3bd62437
+    - git -C /opt/musubi-tuner apply /opt/cwm/patches/minimax-h3-retake34.patch /opt/cwm/patches/musubi-headless-opencv.patch
+    - pip install --no-deps /opt/musubi-tuner /opt/cwm /opt/streaming-cwm
+  runtime_env:
+    TOKENIZERS_PARALLELISM: "false"
+    OMP_NUM_THREADS: "8"
+    RTCWM_SPAN_CHUNKS: "6"
+    PYTORCH_CUDA_ALLOC_CONF: expandable_segments:True

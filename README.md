@@ -78,6 +78,29 @@ WINDOWS=16 OW_ARGS="--chunks 85 --steps 4 --rule x0 --shift 5 --kv-reuse" \
 forward fewer, and the noisy history keeps long streams from drifting); `--no-history-from-last-step` uses a clean
 forward instead.
 
+## Inference with Reactor Runtime
+
+The [Reactor integration](reactor/README.md) serves the released four-step model as a chunk-streaming inference service, with a browser demo for 40 recorded CWM examples or custom depth/semantic inputs, an opening image and a static prompt.
+
+With the [Reactor CLI](https://docs.reactor.inc/deploy/platform/installation), Docker, NVIDIA Container Toolkit and one B200 available:
+
+```bash
+cd reactor
+reactor build
+reactor run --gpus device=0 --port 8080 --weights ./weights
+```
+
+The first launch downloads the pinned weights and examples. Wait until `curl -s localhost:8080/health` reports `"state":"available"`. In another terminal, from `reactor/`, prepare the gallery and open the client:
+
+```bash
+python3.12 -m venv .venv && . .venv/bin/activate
+pip install numpy Pillow av
+python prepare_examples.py --release-root ./weights
+cd demo && cp .env.example .env && npm ci && npm run dev
+```
+
+Open **http://localhost:3000**, click **Connect**, select an example, and click **Start rendering**. Video streams in 17-frame chunks; generation is slower than the native 24 FPS playback rate. See the [Reactor guide](reactor/README.md) for input formats, validation, GPU requirements and SSH/TURN networking.
+
 ## 🏋️ Training
 
 ```bash
