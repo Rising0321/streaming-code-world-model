@@ -34,7 +34,7 @@ For Linux without Homebrew, use the [CLI installation guide](https://docs.reacto
 ```sh
 reactor validate
 reactor build
-reactor run --gpus '"device=0,1,2,3"' --port 8080 --weights ./weights
+reactor run --gpus '"device=0,1,2,3"' --port 8080 --weights ~/.cache/reactor_registry/streaming-cwm
 ```
 
 Choose free GPUs on shared machines. The first start downloads the pinned MiniMax-H3 components, Qwen processor, released streaming DMD LoRA and the 40-example CWM dataset into the mounted weights directory. Later starts reuse those files. A read token can be forwarded with `-e HF_TOKEN` when needed; keep credentials out of source files.
@@ -64,16 +64,18 @@ Set `num_gpus` and `inference_mode` in `streaming_cwm.yaml`, and set `model.reso
 
 ## 3. Prepare the example gallery
 
-After the service has materialized the examples, create their browser previews from the same files. This preparation uses CPU only:
+After the service has materialized the examples, bind their browser gallery to the same release. This preparation uses CPU only:
 
 ```sh
 python3.12 -m venv .venv
 . .venv/bin/activate
 pip install numpy Pillow av
-python prepare_examples.py --release-root ./weights
+python prepare_examples.py --release-root ~/.cache/reactor_registry/streaming-cwm
 ```
 
-**Check:** `demo/public/examples/index.json` contains 40 entries. The generated previews and condition archives are ignored by Git. The model reads built-in conditions directly on the server; selecting a built-in example does not send its large archive through your browser.
+**Check:** `demo/public/examples` is a symlink and its `index.json` contains 40 entries. The gallery is a symlink to a shared external cache at `RELEASE_ROOT/reactor-demo`. PNGs link directly to the original reference images; ZIP/MP4 derivatives are generated once in that cache. Development and production builds reference the same files instead of copying them into either repository or `dist`. Keep this cache available when serving the built frontend. The model reads built-in conditions directly on the server; selecting a built-in example does not send its large archive through your browser.
+
+If you already have the original CWM release, pass its directory as `--release-root /path/to/upstream/release` to reuse it. `--output /path/to/shared/browser-cache` chooses another external derivative cache. Both adapters can bind to the same cache. If an older setup left a real `demo/public/examples` directory, move it outside the checkout and pass that location with `--output` before preparing again.
 
 ## 4. Open the client
 

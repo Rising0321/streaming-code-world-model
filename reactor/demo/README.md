@@ -1,6 +1,6 @@
 # Streaming CWM browser demo
 
-Prepare `public/examples/` as described in the [model guide](../README.md), then:
+Bind `public/examples` to the external release cache as described in the [model guide](../README.md), then:
 
 ```sh
 cp .env.example .env
@@ -30,3 +30,5 @@ npm run preview
 ```
 
 The Vite configuration preserves the official SDK's WebAssembly assets in development and production. Selecting inputs does not start inference; command failures remain visible. On a disconnect, wait for the previous session to finish closing before reconnecting.
+
+Example inputs stay outside the code checkout. `prepare_examples.py --release-root /path/to/upstream/release` links `public/examples` to a shared browser cache; reference PNGs link to the original images, while ZIP/MP4 derivatives are cached once. `npm run build` links `dist/examples` to the same cache without copying it. Keep that cache mounted when serving `dist`; a detached copy of `dist` does not include the dataset. To deploy elsewhere, mount the same cache or bind `/examples` to its contents in your static server.

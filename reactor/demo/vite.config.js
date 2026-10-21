@@ -1,7 +1,7 @@
 import { defineConfig } from "vite";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { readFileSync } from "node:fs";
+import { existsSync, lstatSync, readFileSync, realpathSync, symlinkSync } from "node:fs";
 import { createRequire } from "node:module";
 
 const here = path.dirname(fileURLToPath(import.meta.url));
@@ -27,8 +27,23 @@ export default defineConfig({
     strictPort: true,
     fs: { allow: [here, sdkDirectory] },
   },
-  build: { target: "es2022" },
+  build: { target: "es2022", copyPublicDir: false },
   plugins: [
+    {
+      name: "shared-cwm-examples",
+      writeBundle(output) {
+        const gallery = path.join(here, "public/examples");
+        if (!existsSync(gallery)) return;
+        if (!lstatSync(gallery).isSymbolicLink())
+          throw Error("Prepare the external example cache with prepare_examples.py before building.");
+        const cache = realpathSync(gallery), destination = path.join(output.dir, "examples");
+        if (existsSync(destination)) {
+          if (lstatSync(destination).isSymbolicLink() && realpathSync(destination) === cache) return;
+          throw Error("Move dist/examples to the external cache before rebuilding.");
+        }
+        symlinkSync(cache, destination, "dir");
+      },
+    },
     {
       name: "reactor-sdk-wasm-assets",
       generateBundle() {

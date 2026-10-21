@@ -87,7 +87,7 @@ With the [Reactor CLI](https://docs.reactor.inc/deploy/platform/installation), D
 ```bash
 cd reactor
 reactor build
-reactor run --gpus '"device=0,1,2,3"' --port 8080 --weights ./weights
+reactor run --gpus '"device=0,1,2,3"' --port 8080 --weights ~/.cache/reactor_registry/streaming-cwm
 ```
 
 The first launch downloads the pinned weights and examples. Wait until `curl -s localhost:8080/health` reports `"state":"available"`. In another terminal, from `reactor/`, prepare the gallery and open the client:
@@ -95,7 +95,7 @@ The first launch downloads the pinned weights and examples. Wait until `curl -s 
 ```bash
 python3.12 -m venv .venv && . .venv/bin/activate
 pip install numpy Pillow av
-python prepare_examples.py --release-root ./weights
+python prepare_examples.py --release-root ~/.cache/reactor_registry/streaming-cwm
 cd demo && cp .env.example .env && npm ci && npm run dev
 ```
 

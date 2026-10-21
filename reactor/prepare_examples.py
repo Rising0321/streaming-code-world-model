@@ -1,13 +1,13 @@
 """Prepare the official CWM inputs and lightweight browser previews.
 
-The colour MP4 is for preview only; inference receives the paired lossless ZIP.
-Downloads and expanded conditions live in a user-selected cache, not Git.
+The colour MP4 is for preview only; inference uses lossless depth/semantic pairs.
+Downloads and expanded conditions live in a user-selected cache. The frontend
+links to that cache and to the original reference images without copying them.
 """
 
 import argparse
 import json
 import os
-import shutil
 import subprocess
 import sys
 import zipfile
@@ -37,9 +37,17 @@ def main():
         help="Reuse already materialized official release inputs",
     )
     parser.add_argument(
-        "--output", type=Path, default=Path(__file__).parent / "demo/public/examples"
+        "--output",
+        type=Path,
+        help="External browser cache; defaults to RELEASE_ROOT/reactor-demo",
     )
     args = parser.parse_args()
+    gallery = Path(__file__).resolve().parent / "demo/public/examples"
+    if gallery.exists() and not gallery.is_symlink():
+        parser.error(
+            f"{gallery} is a directory. Move its generated contents to an external "
+            "cache and remove the empty directory before rerunning with --output."
+        )
     release = args.release_root
     if release is None:
         if args.cwm_source is None:
@@ -65,7 +73,11 @@ def main():
             ],
             check=True,
         )
-    media = args.output / "media"
+    release = release.expanduser().resolve()
+    output = (args.output or release / "reactor-demo").expanduser().resolve()
+    if output.is_relative_to(Path(__file__).resolve().parent):
+        parser.error("Choose a browser cache outside this model workspace")
+    media = output / "media"
     media.mkdir(parents=True, exist_ok=True)
     catalog = []
     for example in sorted((release / "examples").glob("example_??")):
@@ -74,7 +86,10 @@ def main():
         cond = example / config["condition_root"]
         depth_files = sorted(cond.glob("*.depth.f32"))
         name = example.name
-        shutil.copyfile(example / config["anchor_image"], media / f"{name}.png")
+        image = media / f"{name}.png"
+        temporary_image = media / f".{name}.{os.getpid()}.png"
+        temporary_image.symlink_to((example / config["anchor_image"]).resolve())
+        temporary_image.replace(image)
         archive, preview = media / f"{name}.zip", media / f"{name}.mp4"
         if not archive.exists():
             temporary = archive.with_suffix(".zip.tmp")
@@ -122,7 +137,14 @@ def main():
         print(f"Prepared {name}: {len(depth_files)} frames", flush=True)
     if len(catalog) != 40:
         raise ValueError(f"Expected 40 official examples, found {len(catalog)}")
-    (args.output / "index.json").write_text(json.dumps(catalog, indent=2))
+    temporary_index = output / f".index.{os.getpid()}.json"
+    temporary_index.write_text(json.dumps(catalog, indent=2))
+    temporary_index.replace(output / "index.json")
+    gallery.parent.mkdir(parents=True, exist_ok=True)
+    temporary_gallery = gallery.with_name(f".examples.{os.getpid()}")
+    temporary_gallery.symlink_to(output, target_is_directory=True)
+    temporary_gallery.replace(gallery)
+    print(f"Browser gallery linked: {gallery} -> {output}", flush=True)
 
 
 if __name__ == "__main__":
