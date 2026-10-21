@@ -7,7 +7,7 @@ __pycache__/
 .venv/
 demo/node_modules/
 demo/dist/
-demo/public/examples/
+demo/public/examples
 *.log
 weights/
 uploads/
