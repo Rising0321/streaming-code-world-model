@@ -2,7 +2,7 @@ $schema: reactor/v2
 
 model:
   name: streaming-cwm
-  version: v0.2.1
+  version: v0.2.2
   description: Stream native 17-frame video chunks from recorded depth and semantic conditions.
   resources:
     gpu:

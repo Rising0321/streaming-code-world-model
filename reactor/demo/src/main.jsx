@@ -19,6 +19,7 @@ function usePreview(source) {
 function Workspace({ endpoint, onEndpointChange }) {
   const status = useReactor((s) => s.status);
   const connect = useReactor((s) => s.connect), disconnect = useReactor((s) => s.disconnect);
+  const reconnect = useReactor((s) => s.reconnect);
   const send = useReactor((s) => s.sendCommand), upload = useReactor((s) => s.uploadFile);
   const lastError = useReactor((s) => s.lastError);
   const reactor = useReactor((s) => s.internal.reactor);
@@ -29,11 +30,18 @@ function Workspace({ endpoint, onEndpointChange }) {
   const [seed, setSeed] = useState(0), [limit, setLimit] = useState(24);
   const [world, setWorld] = useState(null), [busy, setBusy] = useState("");
   const [error, setError] = useState("");
+  const [canReconnect, setCanReconnect] = useState(false);
   const epoch = useRef(0), inCommand = useRef(false);
   const referenceTrack = useReactor((s) => s.tracks.reference_video);
   const imageUrl = usePreview(image);
   const active = Boolean(world?.active), locked = active || Boolean(busy);
-  useEffect(() => { if (lastError) setError(String(lastError)); }, [lastError]);
+  useEffect(() => {
+    if (lastError) {
+      setError(String(lastError));
+      if (lastError.code === "DISCONNECTED" && lastError.recoverable)
+        setCanReconnect(true);
+    }
+  }, [lastError]);
   useReactorMessage((message) => { if (message.type === "state_update") setWorld(message.data); });
   useEffect(() => {
     if (status !== "ready") { epoch.current++; setWorld(null); }
@@ -59,14 +67,16 @@ function Workspace({ endpoint, onEndpointChange }) {
   }
   async function toggleConnection() {
     await command(async () => {
-      setBusy(status === "ready" ? "Disconnecting…" : "Connecting…");
-      if (status === "ready") { await disconnect(); setWorld(null); }
+      setBusy(status === "ready" ? "Disconnecting…" : canReconnect ? "Reconnecting to the existing render…" : "Connecting…");
+      if (status === "ready") { setCanReconnect(false); await disconnect(); setWorld(null); }
       else {
         let address;
         try { address = new URL(endpoint.trim()); }
         catch { throw Error("Use an HTTP or HTTPS Runtime endpoint."); }
         if (!["http:", "https:"].includes(address.protocol)) throw Error("Use an HTTP or HTTPS Runtime endpoint.");
-        await connect();
+        if (canReconnect) { setCanReconnect(false); await reconnect(); }
+        else await connect();
+        if (reactor.getStatus() === "ready") setCanReconnect(false);
       }
     });
   }
@@ -118,9 +128,9 @@ function Workspace({ endpoint, onEndpointChange }) {
       <div className="connection">
         <label htmlFor="endpoint">Runtime</label><input id="endpoint" type="url" value={endpoint} spellCheck={false}
           placeholder="http://localhost:8080" disabled={status !== "disconnected" || Boolean(busy)}
-          onChange={(e) => { onEndpointChange(e.target.value); setError(""); }} />
+          onChange={(e) => { onEndpointChange(e.target.value); setError(""); setCanReconnect(false); }} />
         <b className={`dot ${status === "ready" ? "online" : ""}`} /><span>{status === "ready" ? "Connected" : status}</span>
-        <button onClick={toggleConnection} disabled={Boolean(busy) || status === "connecting" || status === "waiting"}>{status === "ready" ? "Disconnect" : "Connect"}</button>
+        <button onClick={toggleConnection} disabled={Boolean(busy) || status === "connecting" || status === "waiting"}>{status === "ready" ? "Disconnect" : canReconnect ? "Reconnect" : "Connect"}</button>
       </div>
     </header>
     <main className="workspace">

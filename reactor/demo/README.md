@@ -32,3 +32,5 @@ npm run preview
 The Vite configuration preserves the official SDK's WebAssembly assets in development and production. Selecting inputs does not start inference; command failures remain visible. On a disconnect, wait for the previous session to finish closing before reconnecting.
 
 Example inputs stay outside the code checkout. `prepare_examples.py --release-root /path/to/upstream/release` links `public/examples` to a shared browser cache; reference PNGs link to the original images, while ZIP/MP4 derivatives are cached once. `npm run build` links `dist/examples` to the same cache without copying it. Keep that cache mounted when serving `dist`; a detached copy of `dist` does not include the dataset. To deploy elsewhere, mount the same cache or bind `/examples` to its contents in your static server.
+
+Desktop Chrome/Chromium is the validated browser. Safari connections during first-frame preparation remain under investigation. If a connection is interrupted, **Reconnect** uses the SDK to rejoin the retained session and recover its progress. It does not submit Start again; session recovery is available only while Runtime retains that session.
