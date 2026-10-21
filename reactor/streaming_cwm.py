@@ -19,7 +19,7 @@ from reactor_runtime import (
     session_ended,
 )
 from reactor_runtime.distributed import DistributedRunner
-
+from streaming_cwm_images import reference_frames
 from streaming_cwm_inputs import StagedSource, example_source
 from streaming_cwm_model import (
     RenderSource,
@@ -37,8 +37,13 @@ class StreamingCWM(ReactorApp):
     state: StreamingCWMState
 
     def load(self, config_path: Path | None) -> None:
-        from streaming_cwm_assets import download_weights, prepare_demo_inputs
+        from streaming_cwm_assets import (
+            download_weights,
+            load_settings,
+            prepare_demo_inputs,
+        )
 
+        self._num_gpus, self._inference_mode = load_settings(config_path)
         self._weights = Path(
             os.environ.get("STREAMING_CWM_WEIGHTS", str(get_weights_path()))
         )
@@ -53,8 +58,12 @@ class StreamingCWM(ReactorApp):
     def _start_engine(self):
         self._engine = DistributedRunner(
             StreamingCWMModel,
-            world_size=1,
-            load_kwargs={"weights": self._weights},
+            world_size=self._num_gpus,
+            load_kwargs={
+                "weights": self._weights,
+                "inference_mode": self._inference_mode,
+            },
+            start_timeout=1200.0,
             call_timeout=900.0,
         )
         self._engine.start()
@@ -79,12 +88,13 @@ class StreamingCWM(ReactorApp):
         description=(
             "Start a fresh render from prerecorded lossless depth/semantic pairs, an aligned "
             "reference image and a static prompt. Valid at any time; all inputs are validated "
-            "before replacing a run. Broadcasts state_update. No live keyboard controls."
+            "before replacing a run. Refuses invalid input with invalid_input and keeps "
+            "the previous render intact. Broadcasts state_update. No live keyboard controls."
         ),
     )
     async def start(
         self,
-        conditions: UploadedFile = InputField(
+        conditions: UploadedFile = InputField(  # noqa: B008 - schema field declaration
             moderate=True,
             description=(
                 "ZIP up to 512 MiB containing consecutive 000000.depth.f32 and "
@@ -92,7 +102,7 @@ class StreamingCWM(ReactorApp):
                 "metres. Semantic: grayscale IDs 0–11. At least 102 frames; no MP4 input."
             ),
         ),
-        image: UploadedFile = InputField(
+        image: UploadedFile = InputField(  # noqa: B008 - schema field declaration
             moderate=True,
             description=(
                 "First-frame appearance reference aligned with the condition sequence; "
@@ -134,7 +144,7 @@ class StreamingCWM(ReactorApp):
                 max_chunks,
                 self._input_root,
             )
-        except (ValueError, OSError) as error:
+        except ValueError as error:
             raise CommandError("invalid_input", str(error)) from error
         return await self._queue_source(staged.source, staged.unused_frames, staged)
 
@@ -143,7 +153,8 @@ class StreamingCWM(ReactorApp):
         description=(
             "Render one installed official example with its paired reference image. "
             "Conditions are read on the server. Inputs stay fixed until completion or Stop. "
-            "Broadcasts state_update; command_error leaves the previous render intact."
+            "Broadcasts state_update. Refuses invalid inputs with invalid_example and "
+            "leaves the previous render intact."
         ),
     )
     async def start_example(
@@ -174,7 +185,7 @@ class StreamingCWM(ReactorApp):
             source, unused = await asyncio.to_thread(
                 example_source, self._examples, example_id, prompt, seed, max_chunks
             )
-        except (ValueError, OSError) as error:
+        except ValueError as error:
             raise CommandError("invalid_example", str(error)) from error
         return await self._queue_source(source, unused)
 
@@ -186,6 +197,7 @@ class StreamingCWM(ReactorApp):
         s = self.state
         s._world_id += 1
         s._source = source
+        s._reference_conditions = source.conditions
         s._active, s._complete = True, False
         s._sampled = s._emitted = 0
         s._total, s._unused = source.chunks, unused
@@ -232,27 +244,53 @@ class StreamingCWM(ReactorApp):
             raise outcome.error
         result: StreamingCWMResult = outcome.result
         s = self.state
+        if result.world_id != s._world_id:
+            raise ValueError("Result belongs to a different rendering run")
+        reference = None
+        if result.frames is not None:
+            if (
+                s._reference_conditions is None
+                or result.emitted_chunks != s._emitted + 1
+            ):
+                raise ValueError(
+                    "Generated chunk does not match its reference sequence"
+                )
+            if result.frames.dtype != "uint8" or result.frames.shape != (
+                17,
+                768,
+                1344,
+                3,
+            ):
+                raise ValueError("Expected one native 17-frame RGB chunk")
+            reference = await asyncio.to_thread(
+                reference_frames, s._reference_conditions, result.emitted_chunks - 1
+            )
         s._applied_world_id = result.world_id
         s._source = None
         s._sampled, s._emitted = result.sampled_chunks, result.emitted_chunks
         s._complete, s._active = result.complete, not result.complete
         s._seconds = outcome.elapsed
-        # The worker has encoded every input; the staged upload is no longer needed.
-        self._release_input()
+        # Keep uploaded semantic frames until the final reference has been read.
+        if result.complete:
+            self._release_input()
         await self.send(self._status())
-        if result.frames is None:
+        if reference is None:
             return None
+        metadata = [
+            {
+                "world_id": result.world_id,
+                "chunk": result.emitted_chunks - 1,
+                "frame": 17 * (result.emitted_chunks - 1) + index,
+            }
+            for index in range(17)
+        ]
         return StreamingCWMOutput(
-            main_video=TrackPayload(
-                result.frames,
-                metadata=[
-                    {"world_id": result.world_id, "chunk": result.emitted_chunks - 1}
-                ]
-                * len(result.frames),
-            )
+            main_video=TrackPayload(result.frames, metadata=metadata),
+            reference_video=TrackPayload(reference, metadata=metadata),
         )
 
     def _release_input(self):
+        self.state._reference_conditions = None
         if self.state._staged is not None:
             self.state._staged.close()
             self.state._staged = None

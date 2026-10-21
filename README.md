@@ -82,12 +82,12 @@ forward instead.
 
 The [Reactor integration](reactor/README.md) serves the released four-step model as a chunk-streaming inference service, with a browser demo for 40 recorded CWM examples or custom depth/semantic inputs, an opening image and a static prompt.
 
-With the [Reactor CLI](https://docs.reactor.inc/deploy/platform/installation), Docker, NVIDIA Container Toolkit and one B200 available:
+With the [Reactor CLI](https://docs.reactor.inc/deploy/platform/installation), Docker, NVIDIA Container Toolkit and four B200s available:
 
 ```bash
 cd reactor
 reactor build
-reactor run --gpus device=0 --port 8080 --weights ./weights
+reactor run --gpus '"device=0,1,2,3"' --port 8080 --weights ./weights
 ```
 
 The first launch downloads the pinned weights and examples. Wait until `curl -s localhost:8080/health` reports `"state":"available"`. In another terminal, from `reactor/`, prepare the gallery and open the client:
@@ -99,7 +99,7 @@ python prepare_examples.py --release-root ./weights
 cd demo && cp .env.example .env && npm ci && npm run dev
 ```
 
-Open **http://localhost:3000**, click **Connect**, select an example, and click **Start rendering**. Video streams in 17-frame chunks; generation is slower than the native 24 FPS playback rate. See the [Reactor guide](reactor/README.md) for input formats, validation, GPU requirements and SSH/TURN networking.
+Open **http://localhost:3000**, set **Runtime** to `http://localhost:8080` (or your service's HTTP address), click **Connect**, select an example, and click **Start rendering**. Video streams in 17-frame chunks with native 24 FPS playback timing. The integration includes a native single-GPU reference and FA4 configurations for one, four or eight GPUs. See the [Reactor guide](reactor/README.md) for configuration, measured throughput, input formats, validation and SSH/TURN networking.
 
 ## 🏋️ Training
 

@@ -1,7 +1,8 @@
 """Public progress messages and private per-session input state."""
 
-from reactor_runtime import InputState, MessageField, ModelMessage, Output, Video
+from pathlib import Path
 
+from reactor_runtime import InputState, MessageField, ModelMessage, Output, Video
 from streaming_cwm_inputs import StagedSource
 from streaming_cwm_model import RenderSource
 
@@ -11,6 +12,7 @@ class StreamingCWMState(InputState):
     _world_id: int = 0
     _applied_world_id: int | None = None
     _source: RenderSource | None = None
+    _reference_conditions: Path | None = None
     _active: bool = False
     _complete: bool = False
     _sampled: int = 0
@@ -22,6 +24,7 @@ class StreamingCWMState(InputState):
 
 class StreamingCWMOutput(Output):
     main_video: Video
+    reference_video: Video
 
 
 class StateUpdate(ModelMessage):

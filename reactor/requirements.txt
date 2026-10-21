@@ -25,3 +25,9 @@ matplotlib
 soundfile
 librosa
 scipy
+PyYAML>=6
+# Tested Blackwell attention/compiler stack. TP keeps native BF16 arithmetic.
+flash-attn-4==4.0.0b34
+nvidia-cutlass-dsl==4.8.0
+cuda-bindings==13.4.3
+quack-kernels==0.6.5

@@ -16,7 +16,7 @@ function usePreview(source) {
   return url;
 }
 
-function Workspace() {
+function Workspace({ endpoint, onEndpointChange }) {
   const status = useReactor((s) => s.status);
   const connect = useReactor((s) => s.connect), disconnect = useReactor((s) => s.disconnect);
   const send = useReactor((s) => s.sendCommand), upload = useReactor((s) => s.uploadFile);
@@ -30,6 +30,7 @@ function Workspace() {
   const [world, setWorld] = useState(null), [busy, setBusy] = useState("");
   const [error, setError] = useState("");
   const epoch = useRef(0), inCommand = useRef(false);
+  const referenceTrack = useReactor((s) => s.tracks.reference_video);
   const imageUrl = usePreview(image);
   const active = Boolean(world?.active), locked = active || Boolean(busy);
   useEffect(() => { if (lastError) setError(String(lastError)); }, [lastError]);
@@ -59,7 +60,14 @@ function Workspace() {
   async function toggleConnection() {
     await command(async () => {
       setBusy(status === "ready" ? "Disconnecting…" : "Connecting…");
-      if (status === "ready") { await disconnect(); setWorld(null); } else await connect();
+      if (status === "ready") { await disconnect(); setWorld(null); }
+      else {
+        let address;
+        try { address = new URL(endpoint.trim()); }
+        catch { throw Error("Use an HTTP or HTTPS Runtime endpoint."); }
+        if (!["http:", "https:"].includes(address.protocol)) throw Error("Use an HTTP or HTTPS Runtime endpoint.");
+        await connect();
+      }
     });
   }
   function chooseExample(name) {
@@ -107,7 +115,11 @@ function Workspace() {
     <header>
       <a className="brand" href="https://reactor.inc" target="_blank" rel="noreferrer" aria-label="Reactor"><Logo variant="symbol" color="white" height={20} /></a>
       <i /><strong>Streaming Code World Model</strong><span className="tag">RECORDED CONDITIONS</span>
-      <div className="connection"><b className={`dot ${status === "ready" ? "online" : ""}`} /><span>{status === "ready" ? "Connected" : status}</span>
+      <div className="connection">
+        <label htmlFor="endpoint">Runtime</label><input id="endpoint" type="url" value={endpoint} spellCheck={false}
+          placeholder="http://localhost:8080" disabled={status !== "disconnected" || Boolean(busy)}
+          onChange={(e) => { onEndpointChange(e.target.value); setError(""); }} />
+        <b className={`dot ${status === "ready" ? "online" : ""}`} /><span>{status === "ready" ? "Connected" : status}</span>
         <button onClick={toggleConnection} disabled={Boolean(busy) || status === "connecting" || status === "waiting"}>{status === "ready" ? "Disconnect" : "Connect"}</button>
       </div>
     </header>
@@ -129,6 +141,9 @@ function Workspace() {
           <input aria-label="Reference image" type="file" accept="image/png,image/jpeg,image/webp" disabled={locked} onChange={(e) => {
             if (e.target.files?.[0]) { setImage(e.target.files[0]); setSelected(""); } e.target.value = "";
           }} /></label>
+        <div className="appearance-preview"><h3>Appearance reference</h3>
+          {imageUrl ? <img key={imageUrl} src={imageUrl} alt="Selected appearance reference" /> : <div className="empty">Choose an aligned opening image</div>}
+        </div>
         <label className="field">03 / Appearance and scene<textarea aria-label="Rendering prompt" rows={7} maxLength={32768} disabled={locked} placeholder="Describe the starting scene and appearance…" value={prompt} onChange={(e) => setPrompt(e.target.value)} /></label>
         <div className="numbers">
           <label className="field">Seed<input aria-label="Seed" type="number" min={0} max={2147483647} value={seed} disabled={locked} onChange={(e) => setSeed(Number(e.target.value))} /></label>
@@ -144,25 +159,35 @@ function Workspace() {
         <details><summary className="hint">Custom condition format</summary><p className="hint">Consecutive pairs starting at 000000: .depth.f32 (336 × 192 little-endian float32 metres) and .semantic_id.png (336 × 192 grayscale IDs 0–11). At least 102 frames. A preview MP4 cannot replace these lossless inputs.</p></details>
       </aside>
       <section className="stage-column">
-        <div className="stage-heading"><div><span className="eyebrow">02 / GENERATED OUTPUT</span><h2>Structure in. A world out.</h2></div><span className="tag">1344 × 768 · 24 FPS playback</span></div>
-        <div className="stage">
-          <ReactorView track="main_video" muted videoObjectFit="contain" className="video" />
-          {!world?.output_frames && <div className="placeholder"><span className="eyebrow">{active ? "PREPARING FIRST FRAMES" : "READY WHEN YOU ARE"}</span><h2>{active ? "Conditioning your render" : "Choose an example. Press Start."}</h2><p>First-run text encoding and kernel compilation take time.<br />Native decoding needs one chunk of lookahead; subsequent output streams by chunk.</p></div>}
-          <div className="stage-badge">Run {world?.world_id ?? "—"} · {world?.completed_chunks ?? 0} / {world?.total_chunks ?? "—"} decoded chunks · {world?.sampled_chunks ?? 0} sampled{world?.last_chunk_seconds != null && ` · ${world.last_chunk_seconds.toFixed(2)} s/step`}</div>
+        <div className="stage-heading"><div><span className="eyebrow">02 / REFERENCE AND RENDER</span><h2>Structure in. A world out.</h2></div><span className="tag">24 FPS playback</span></div>
+        <div className="view-labels"><h3>Reference video <span>Semantic conditions</span></h3><h3>Generated video <span>1344 × 768</span></h3></div>
+        <div className="comparison">
+          <div className="stage reference-stage">
+            <ReactorView track="reference_video" muted videoObjectFit="contain" className="video" />
+            {!world?.output_frames && <div className="placeholder"><span className="eyebrow">REFERENCE VIDEO</span><p>The matching semantic frames appear<br />when generated video is ready.</p></div>}
+            {Boolean(world?.output_frames) && !referenceTrack && <div className="placeholder"><p>This Runtime provides generated video only.<br />Update Runtime to receive the reference track.</p></div>}
+          </div>
+          <div className="stage generated-stage">
+            <ReactorView track="main_video" muted videoObjectFit="contain" className="video" />
+            {!world?.output_frames && <div className="placeholder"><span className="eyebrow">{active ? "PREPARING FIRST FRAMES" : "READY WHEN YOU ARE"}</span><h2>{active ? "Conditioning your render" : "Choose an example. Press Start."}</h2><p>First-run text encoding and kernel compilation take time.<br />Native decoding needs one chunk of lookahead.</p></div>}
+          </div>
         </div>
-        <div className="input-previews">
-          <section><h3>Semantic input preview</h3>{preview ? <video key={preview} aria-label="Semantic input preview" src={preview} controls muted preload="metadata" /> : <div className="empty">Choose an example to preview its recorded motion</div>}<p className="hint">Preview only. Inference uses lossless depth and semantic IDs; generation always starts at frame zero.</p></section>
-          <section><h3>Appearance reference</h3>{imageUrl ? <img key={imageUrl} src={imageUrl} alt="Selected appearance reference" /> : <div className="empty">Choose an aligned opening image</div>}<p className="hint">The first-frame reference paired with this input sequence.</p></section>
-        </div>
+        <p className="stage-progress">Run {world?.world_id ?? "—"} · {world?.completed_chunks ?? 0} / {world?.total_chunks ?? "—"} decoded chunks · {world?.sampled_chunks ?? 0} sampled{world?.last_chunk_seconds != null && ` · ${world.last_chunk_seconds.toFixed(2)} s/step`}</p>
+        <p className="hint">Matching reference and generated chunks stream together on separate video tracks. Playback may briefly differ while either track buffers. The left view visualizes semantic IDs; lossless depth and semantic pairs drive inference.</p>
+        {preview && <details className="source-preview"><summary>Preview the full recorded input</summary><video key={preview} aria-label="Full semantic input preview" src={preview} controls muted preload="metadata" /><p className="hint">Independent source preview. Rendering starts at frame zero and stops at the selected chunk limit.</p></details>}
         <footer>Streaming Code World Model · TingtingLiao and contributors<span>Built on Reactor</span></footer>
       </section>
     </main>
   </div>;
 }
 
-createRoot(document.querySelector("#root")).render(
-  <ReactorProvider modelName="streaming-cwm" local apiUrl={import.meta.env.VITE_REACTOR_URL || "http://localhost:8080"}
-    modelTracks={[{ name: "main_video", kind: "video", direction: "recvonly" }]} connectOptions={{ autoConnect: false }}>
-    <Workspace />
-  </ReactorProvider>,
-);
+function App() {
+  const [endpoint, setEndpoint] = useState(() => new URLSearchParams(window.location.search).get("endpoint") ||
+    import.meta.env.VITE_REACTOR_URL || "http://localhost:8080");
+  return <ReactorProvider modelName="streaming-cwm" local apiUrl={endpoint.trim()}
+    connectOptions={{ autoConnect: false }}>
+    <Workspace endpoint={endpoint} onEndpointChange={setEndpoint} />
+  </ReactorProvider>;
+}
+
+createRoot(document.querySelector("#root")).render(<App />);

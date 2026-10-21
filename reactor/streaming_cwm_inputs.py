@@ -5,11 +5,11 @@ import re
 import stat
 import tempfile
 import zipfile
+import zlib
 from pathlib import Path
 
 import numpy as np
 from PIL import Image, UnidentifiedImageError
-
 from streaming_cwm_model import RenderSource
 
 MAX_CHUNKS = 480
@@ -161,20 +161,27 @@ class StagedSource:
                                     "Depth contains non-finite or negative distances"
                                 )
                         else:
-                            with Image.open(io.BytesIO(data)) as im:
-                                if (
-                                    im.format != "PNG"
-                                    or im.mode != "L"
-                                    or im.size != (336, 192)
-                                ):
-                                    raise ValueError(
-                                        "Semantic ID must be a 336 x 192 grayscale PNG"
-                                    )
-                                if np.asarray(im).max() > 11:
-                                    raise ValueError("Semantic IDs must be in [0, 11]")
+                            try:
+                                with Image.open(io.BytesIO(data)) as im:
+                                    if (
+                                        im.format != "PNG"
+                                        or im.mode != "L"
+                                        or im.size != (336, 192)
+                                    ):
+                                        raise ValueError(
+                                            "Semantic ID must be a 336 x 192 grayscale PNG"
+                                        )
+                                    if np.asarray(im).max() > 11:
+                                        raise ValueError(
+                                            "Semantic IDs must be in [0, 11]"
+                                        )
+                            except (OSError, Image.DecompressionBombError) as error:
+                                raise ValueError(
+                                    "Semantic PNG cannot be decoded"
+                                ) from error
                         if index < chunks * 17:
                             (conditions / f"{index:06d}.{kind}").write_bytes(data)
-            except (zipfile.BadZipFile, OSError, UnidentifiedImageError) as error:
+            except (zipfile.BadZipFile, zlib.error) as error:
                 raise ValueError("Conditions ZIP cannot be decoded") from error
             self.total_frames, self.unused_frames = total, total - chunks * 17
             self.source = RenderSource(

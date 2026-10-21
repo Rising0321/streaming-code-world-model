@@ -16,26 +16,8 @@ from pathlib import Path
 import av
 import numpy as np
 from PIL import Image
-
+from streaming_cwm_images import PALETTE
 from streaming_cwm_inputs import static_prompt
-
-PALETTE = np.array(
-    [
-        [0, 0, 0],
-        [135, 206, 235],
-        [30, 90, 200],
-        [150, 120, 80],
-        [90, 90, 90],
-        [60, 160, 60],
-        [200, 120, 80],
-        [220, 200, 60],
-        [230, 40, 40],
-        [200, 80, 200],
-        [40, 220, 220],
-        [250, 250, 250],
-    ],
-    dtype=np.uint8,
-)
 
 
 def main():

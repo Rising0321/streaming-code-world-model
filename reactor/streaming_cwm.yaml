@@ -1,0 +1,4 @@
+# Match model.resources.gpu.count in reactor.yaml to num_gpus before building.
+# native: original single-GPU SDPA inference; fa4: B200 optimizations on 1, 4 or 8 GPUs.
+num_gpus: 4
+inference_mode: fa4

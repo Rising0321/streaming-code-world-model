@@ -8,9 +8,11 @@ npm ci
 npm run dev
 ```
 
-Open http://localhost:3000. Click **Connect**, choose an example or upload conditions, an opening image and a prompt, then click **Start rendering**. The example selector changes all three inputs together. The condition MP4 is a visual preview; lossless depth and semantic-ID pairs drive inference. Prompt and reference stay fixed for a render. Use **Stop rendering** before changing them.
+Open http://localhost:3000. Set **Runtime** to the HTTP endpoint reached by your browser, click **Connect**, choose an example or upload conditions, an opening image and a prompt, then click **Start rendering**. The example selector changes all three inputs together. The condition MP4 is a visual preview; lossless depth and semantic-ID pairs drive inference. Prompt and reference stay fixed for a render. Use **Stop rendering** before changing them.
 
-Set `VITE_REACTOR_URL` to the HTTP endpoint reached by your browser and restart Vite. The provided client uses Reactor's local SDK mode. A hosted service requires a server-side authentication exchange; never put a Reactor API key into a `VITE_*` variable.
+Reference video is on the left and generated video on the right. The service publishes matching semantic and generated frames together on separate video tracks at 24 FPS. Browser buffering may cause a brief offset between them. The appearance-image preview sits below upload **02**. This layout works for official examples and custom condition ZIPs; it does not depend on an independently playing preview MP4. Rebuild Runtime after changing the adapter so the reference track is available. An older Runtime still displays generated video.
+
+The **Runtime** address is editable while disconnected. To switch ports, click **Disconnect**, change the address, then **Connect**. A link such as `http://localhost:3000/?endpoint=http%3A%2F%2Flocalhost%3A8080` prefills the address without connecting. It takes precedence over `VITE_REACTOR_URL`, whose default is `http://localhost:8080`. Changing this build-time default requires restarting Vite. The provided client uses Reactor's local SDK mode. A hosted service requires a server-side authentication exchange; never put a Reactor API key into a `VITE_*` variable.
 
 For SSH access, forward the frontend, Runtime HTTP and authenticated TURN/TCP ports configured by your server operator. An example, with placeholder ports to replace:
 

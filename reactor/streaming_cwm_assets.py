@@ -4,6 +4,26 @@ import subprocess
 import sys
 from pathlib import Path
 
+
+def load_settings(config_path: Path | None) -> tuple[int, str]:
+    """Resolve deployment choices once, before creating any workers."""
+    import yaml
+
+    path = config_path or Path(__file__).with_name("streaming_cwm.yaml")
+    with path.open() as handle:
+        config = yaml.safe_load(handle)
+    if not isinstance(config, dict) or set(config) != {"num_gpus", "inference_mode"}:
+        raise ValueError("Configuration requires num_gpus and inference_mode")
+    count, mode = config["num_gpus"], config["inference_mode"]
+    if type(count) is not int or count not in (1, 4, 8):
+        raise ValueError("num_gpus must be 1, 4 or 8")
+    if mode not in ("native", "fa4"):
+        raise ValueError("inference_mode must be native or fa4")
+    if mode == "native" and count != 1:
+        raise ValueError("The native reference path requires num_gpus: 1")
+    return count, mode
+
+
 ASSETS = (
     (
         "Luffuly/streaming-code-world-model",

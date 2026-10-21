@@ -11,7 +11,6 @@ from pathlib import Path
 
 import numpy as np
 import torch
-
 from streaming_cwm_model import RenderSource
 from streaming_cwm_sampling import ChunkSampler, StreamingDecoder
 
@@ -47,6 +46,73 @@ class _Run:
     sampler: ChunkSampler
     decoder: StreamingDecoder
     emitted: int = 0
+
+
+@torch.inference_mode()
+def prepare_conditioning(
+    source: RenderSource, vae, processor, qwen, silence, device
+) -> _Prepared:
+    """Shared native image, lossless condition and fixed-caption encoding."""
+    from cwm_h3_inference.config import _canonical_caption
+    from cwm_h3_inference.duv import load_duv_frame
+    from musubi_tuner.minimax_h3.video_vae import encode_video_condition
+    from musubi_tuner.minimax_h3_generate_video import _prepare_pixels
+    from rtcwm.eval.open_world import static_caption
+    from rtcwm.train.preencode import static_text_states
+
+    logger.info("Encoding %d native condition chunks", source.chunks)
+    duv = np.stack(
+        [
+            load_duv_frame(source.conditions, i, for_qwen=False)
+            for i in range(source.chunks * 17)
+        ]
+    )
+    duv = np.concatenate((duv, np.repeat(duv[-1:], 17, axis=0)), axis=0)
+    pixels = _prepare_pixels(torch.from_numpy(duv)).to(device, torch.float16)
+    ref = (
+        encode_video_condition(vae, pixels)[0]
+        .float()
+        .cpu()[:, : source.chunks * 5]
+        .contiguous()
+    )
+    del pixels, duv
+    picture = source.image
+    anchor = (
+        encode_video_condition(
+            vae,
+            _prepare_pixels(torch.from_numpy(picture).unsqueeze(0)).to(
+                device, torch.float16
+            ),
+        )
+        .float()
+        .cpu()
+    )
+    caption = _canonical_caption(static_caption(source.prompt), "reactor/static_c00")
+    qwen.to(device)
+    try:
+        # Native text preparation uses this path only as a reference key;
+        # the fitted image pixels are supplied directly in H3TextVisual.
+        image_key = source.conditions.parent / "reference.png"
+        hidden, tags = static_text_states(
+            processor,
+            qwen,
+            picture,
+            image_key,
+            source.conditions,
+            0,
+            caption,
+        )
+        hidden, tags = hidden.to("cpu", torch.bfloat16), tags.to("cpu", torch.int64)
+    finally:
+        qwen.to("cpu")
+        torch.cuda.empty_cache()
+    return _Prepared(
+        duv=ref,
+        anchor=anchor,
+        hidden=hidden.unsqueeze(0),
+        tags=tags.unsqueeze(0),
+        silence=silence,
+    )
 
 
 class NativeBackend:
@@ -129,70 +195,11 @@ class NativeBackend:
 
     @torch.inference_mode()
     def prepare(self, source: RenderSource) -> None:
-        from cwm_h3_inference.config import _canonical_caption
-        from cwm_h3_inference.duv import load_duv_frame
-        from musubi_tuner.minimax_h3.video_vae import encode_video_condition
-        from musubi_tuner.minimax_h3_generate_video import _prepare_pixels
-        from rtcwm.eval.open_world import static_caption
-        from rtcwm.train.preencode import static_text_states
-
         self.reset()
         self.model.to("cpu")
         torch.cuda.empty_cache()
-        logger.info("Encoding %d native condition chunks", source.chunks)
-        duv = np.stack(
-            [
-                load_duv_frame(source.conditions, i, for_qwen=False)
-                for i in range(source.chunks * 17)
-            ]
-        )
-        duv = np.concatenate((duv, np.repeat(duv[-1:], 17, axis=0)), axis=0)
-        pixels = _prepare_pixels(torch.from_numpy(duv)).to(self.device, torch.float16)
-        ref = (
-            encode_video_condition(self.vae, pixels)[0]
-            .float()
-            .cpu()[:, : source.chunks * 5]
-            .contiguous()
-        )
-        del pixels, duv
-        picture = source.image
-        anchor = (
-            encode_video_condition(
-                self.vae,
-                _prepare_pixels(torch.from_numpy(picture).unsqueeze(0)).to(
-                    self.device, torch.float16
-                ),
-            )
-            .float()
-            .cpu()
-        )
-        caption = _canonical_caption(
-            static_caption(source.prompt), "reactor/static_c00"
-        )
-        self.qwen.to(self.device)
-        try:
-            # Native text preparation uses this path only as a reference key;
-            # the fitted image pixels are supplied directly in H3TextVisual.
-            image_key = source.conditions.parent / "reference.png"
-            hidden, tags = static_text_states(
-                self.processor,
-                self.qwen,
-                picture,
-                image_key,
-                source.conditions,
-                0,
-                caption,
-            )
-            hidden, tags = hidden.to("cpu", torch.bfloat16), tags.to("cpu", torch.int64)
-        finally:
-            self.qwen.to("cpu")
-            torch.cuda.empty_cache()
-        prepared = _Prepared(
-            duv=ref,
-            anchor=anchor,
-            hidden=hidden.unsqueeze(0),
-            tags=tags.unsqueeze(0),
-            silence=self.silence,
+        prepared = prepare_conditioning(
+            source, self.vae, self.processor, self.qwen, self.silence, self.device
         )
         self.model.to(self.device)
         self._run = _Run(

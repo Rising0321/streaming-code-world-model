@@ -10,11 +10,18 @@ import numpy as np
 
 if TYPE_CHECKING:
     from streaming_cwm_backend import NativeBackend
+    from streaming_cwm_parallel_backend import ParallelBackend
 
 
 @dataclass(frozen=True)
 class RenderSource:
-    """Fresh-run inputs: fitted RGB uint8 (768, 1344, 3), local lossless pairs."""
+    """Inputs fixed for one render.
+
+    conditions: Directory of validated consecutive depth/semantic pairs.
+    image: Fitted opening RGB image, uint8 (768, 1344, 3), on CPU.
+    prompt: Static scene description; seed: the fresh run's RNG seed.
+    chunks: Number of 17-frame chunks, including the decoder's final flush.
+    """
 
     conditions: Path
     image: np.ndarray
@@ -33,7 +40,14 @@ class StreamingCWMInput:
 
 @dataclass(frozen=True)
 class StreamingCWMResult:
-    """Step facts; frames is contiguous RGB uint8 (17, 768, 1344, 3), or None."""
+    """Facts produced by one step.
+
+    world_id: The successfully prepared run identity.
+    sampled_chunks: Count of generated chunks, including the pending decode.
+    emitted_chunks: Count of decoded 17-frame chunks returned so far.
+    complete: True on the final decode-only step.
+    frames: Contiguous RGB uint8 (17, 768, 1344, 3) on CPU, or None during lookahead.
+    """
 
     world_id: int
     sampled_chunks: int
@@ -52,14 +66,32 @@ class StreamingCWMModel:
     """
 
     def __init__(self) -> None:
-        self._backend: NativeBackend | None = None
+        # DistributedRunner assigns these before load(); defaults allow direct use.
+        self.rank, self.world_size, self.device = 0, 1, "cuda:0"
+        self._backend: NativeBackend | ParallelBackend | None = None
         self._world_id: int | None = None
 
-    def load(self, *, weights: Path) -> None:
+    def load(self, *, weights: Path, inference_mode: str = "native") -> None:
         """Load resolved checkpoints once in the current worker."""
-        from streaming_cwm_backend import NativeBackend
+        if inference_mode not in ("native", "fa4"):
+            raise ValueError("inference_mode must be native or fa4")
+        if self.world_size not in (1, 4, 8):
+            raise ValueError("Supported GPU counts are 1, 4 and 8")
+        if inference_mode == "native":
+            if self.world_size != 1:
+                raise ValueError("The native reference path uses one GPU")
+            from streaming_cwm_backend import NativeBackend
 
-        self._backend = NativeBackend(weights)
+            self._backend = NativeBackend(weights)
+        else:
+            from streaming_cwm_parallel_backend import ParallelBackend
+
+            self._backend = ParallelBackend(
+                weights,
+                self.device,
+                self.rank,
+                self.world_size,
+            )
         self._world_id = None
 
     def generate(self, input: StreamingCWMInput) -> StreamingCWMResult:
